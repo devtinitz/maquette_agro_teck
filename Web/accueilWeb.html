@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-error-container": "#93000a",
+            "error-container": "#ffdad6",
+            "secondary-fixed-dim": "#b1c5ff",
+            "on-background": "#1a1c1a",
+            "inverse-surface": "#2f312f",
+            "on-tertiary": "#ffffff",
+            "secondary": "#2559bd",
+            "surface-dim": "#dbdad7",
+            "primary-fixed-dim": "#80d8a6",
+            "primary": "#005232",
+            "on-tertiary-container": "#ffd1a2",
+            "secondary-fixed": "#dae2ff",
+            "on-surface-variant": "#3f4942",
+            "on-primary": "#ffffff",
+            "on-primary-fixed": "#002111",
+            "surface-tint": "#006d44",
+            "on-primary-fixed-variant": "#005232",
+            "primary-container": "#006d44",
+            "surface-container-high": "#e9e8e5",
+            "on-secondary-fixed": "#001946",
+            "inverse-on-surface": "#f1f1ee",
+            "error": "#ba1a1a",
+            "inverse-primary": "#80d8a6",
+            "on-secondary-fixed-variant": "#00419e",
+            "outline": "#6f7a71",
+            "on-secondary-container": "#002f76",
+            "on-tertiary-fixed": "#2b1700",
+            "tertiary-container": "#885300",
+            "secondary-container": "#6c98ff",
+            "tertiary": "#683e00",
+            "surface-container-low": "#f4f3f1",
+            "on-primary-container": "#93ecb8",
+            "surface-container": "#efeeeb",
+            "surface-container-lowest": "#ffffff",
+            "background": "#faf9f6",
+            "outline-variant": "#bec9bf",
+            "primary-fixed": "#9cf5c1",
+            "tertiary-fixed": "#ffddba",
+            "on-error": "#ffffff",
+            "surface-variant": "#e3e2e0",
+            "on-tertiary-fixed-variant": "#673d00",
+            "on-secondary": "#ffffff",
+            "surface-bright": "#faf9f6",
+            "tertiary-fixed-dim": "#ffb866",
+            "surface": "#faf9f6",
+            "on-surface": "#1a1c1a",
+            "surface-container-highest": "#e3e2e0"
+          },
+          fontFamily: {
+            "headline": ["Manrope"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .glass-nav {
+      backdrop-filter: blur(12px);
+    }
+
+    .asymmetric-grid {
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+  </style>
+</head>
+
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+  <!-- TopAppBar -->
+  <header
+    class="bg-[#faf9f6]/80 dark:bg-emerald-950/90 backdrop-blur-md docked full-width top-0 sticky z-50 no-border shadow-sm shadow-[0_12px_40px_rgba(26,28,26,0.06)]">
+    <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+      <div class="text-2xl font-black text-[#005232] dark:text-emerald-400 tracking-tighter font-headline">
+        AgroPoulet
+      </div>
+      <nav class="hidden md:flex items-center gap-8">
+        <a class="text-[#005232] dark:text-emerald-300 font-bold border-b-2 border-[#005232] font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+          href="accueilWeb.html">Accueil</a>
+        <a class="text-[#1a1c1a] dark:text-emerald-100 opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+          href="aproposWeb.html">A propos</a>
+          <a class="text-[#1a1c1a] dark:text-emerald-100 opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+            href="marketplaceWeb.html">Marché</a>
+          <a class="text-[#1a1c1a] dark:text-emerald-100 opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+            href="formationWeb.html">Formations</a>
+          <a class="text-[#1a1c1a] dark:text-emerald-100 opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+            href="carteeleveurWeb.html">Carte</a>
+        <a class="text-[#1a1c1a] dark:text-emerald-100 opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+          href="contactWeb.html">Contact</a>
+        <a class="text-[#1a1c1a] dark:text-emerald-100 opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+          href="#">Connexion</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <span class="material-symbols-outlined text-[#005232] dark:text-emerald-400">notifications</span>
+        <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden">
+          <img alt="Profil de l'éleveur" class="w-full h-full object-cover"
+            data-alt="close-up portrait of a smiling senegalese farmer wearing traditional clothing in soft natural lighting"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFRE8Sp2DrPyQCNyh8agu6q9tDgPZPW4qI70n3fbM7JlASKVBHAqP-9PdvzxMViVkc7V4qafSqCv3ZlJNGEPYdkrLS1msMT11_u1h9UJlfXc2EJgUrb-G-3cKU5Xpks8lRK-ZV00HYye947vAWY02v_cdTP6RFvKtRQyrr4fS7A8AWGRKhklyEziy6b5GqwTU7xDq4gl99PkoWXw_3iEF0b8OtsH2bjn71EAGO5OMc0genDgsVTp-EMzzvdRuxER2yVxqKDXOOq9DD" />
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <!-- Hero Section -->
+    <section class="relative h-[921px] flex items-center overflow-hidden px-6 lg:px-24">
+      <div class="absolute inset-0 z-0">
+        <img alt="Aviculture Sénégal" class="w-full h-full object-cover"
+          data-alt="vast landscape of a modern poultry farm in rural Senegal at dawn with golden sunlight filtering through the structure"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuANlk48srlTps_KhT0l9UiXwY16a6s9i_UcOK36JWXQpUfKhqPpZI0AQBIki9sQA7307qj7NMgzoiaWKhWQEG3ToNgd1r0Zwy31IXD6wlU8rX42LJg8FmsUGE-MPGvDHFjWP9IQzeQHKtIPyw4hF2hJm5iKv-XDvllpPcOyjINqUtpCrn2ZguTIY9C3eK5gHGDcEncTafH3uZM7lj8NX0Qasb1dICDMMu5Y2eeNE-bEbnALRKJOXE_CobjworenI9_uMROFMLsHr6Rd" />
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/20"></div>
+      </div>
+      <div class="relative z-10 max-w-3xl">
+        <h1 class="font-headline font-extrabold text-6xl md:text-8xl text-white tracking-tighter leading-none mb-6">
+          L'Aviculture <br /><span class="text-primary-fixed">Réinventée.</span>
+        </h1>
+        <p class="text-white/90 text-xl md:text-2xl mb-10 font-body max-w-xl leading-relaxed">
+          La première plateforme digitale dédiée à l'excellence avicole au Sénégal. Connectez, élevez et vendez en toute
+          simplicité.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <button
+            class="bg-gradient-to-br from-primary to-primary-container text-white px-10 py-5 rounded-full font-label font-bold uppercase tracking-widest hover:scale-105 transition-transform shadow-xl">
+            Créer un compte
+          </button>
+          <button
+            class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-10 py-5 rounded-full font-label font-bold uppercase tracking-widest hover:bg-white hover:text-primary transition-all">
+            Explorer le marché
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- Presentation Section -->
+    <section class="py-24 bg-surface px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-20">
+          <span class="text-secondary font-label font-bold tracking-[0.2em] uppercase text-xs">Notre Mission</span>
+          <h2 class="font-headline font-bold text-4xl mt-4 text-on-surface">Digitaliser la terre Sénégalaise</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div
+            class="flex flex-col items-center text-center p-8 bg-surface-container-low rounded-xl transition-all hover:bg-white hover:shadow-xl">
+            <div class="w-16 h-16 bg-primary-fixed rounded-2xl flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined text-primary text-3xl">agriculture</span>
+            </div>
+            <h3 class="font-headline font-bold text-xl mb-3">Suivi Précis</h3>
+            <p class="text-on-surface-variant leading-relaxed">Gérez vos cycles de production avec des outils
+              analytiques de pointe adaptés au climat local.</p>
+          </div>
+          <div
+            class="flex flex-col items-center text-center p-8 bg-surface-container-low rounded-xl transition-all hover:bg-white hover:shadow-xl">
+            <div class="w-16 h-16 bg-secondary-fixed rounded-2xl flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined text-secondary text-3xl">hub</span>
+            </div>
+            <h3 class="font-headline font-bold text-xl mb-3">Réseau Direct</h3>
+            <p class="text-on-surface-variant leading-relaxed">Supprimez les intermédiaires et connectez-vous
+              directement aux acheteurs et fournisseurs.</p>
+          </div>
+          <div
+            class="flex flex-col items-center text-center p-8 bg-surface-container-low rounded-xl transition-all hover:bg-white hover:shadow-xl">
+            <div class="w-16 h-16 bg-tertiary-fixed rounded-2xl flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined text-tertiary text-3xl">verified</span>
+            </div>
+            <h3 class="font-headline font-bold text-xl mb-3">Qualité Certifiée</h3>
+            <p class="text-on-surface-variant leading-relaxed">Un label de confiance pour garantir la provenance et la
+              santé de chaque poulet sur le marché.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Target Audience Grid -->
+    <section class="py-24 bg-surface-container overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
+          <div class="max-w-2xl">
+            <h2 class="font-headline font-extrabold text-5xl tracking-tight mb-4">Une solution pour chaque acteur.</h2>
+            <p class="text-on-surface-variant text-lg">Que vous soyez au début de votre aventure ou un leader du
+              secteur, AgroPoulet vous accompagne.</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+          <div class="md:col-span-8 group relative h-[400px] overflow-hidden rounded-xl">
+            <img alt="Éleveurs"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              data-alt="professional senegalese farmer inspecting healthy chickens in a clean modern poultry house"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC93HJfGjzBnGazvvLHOTeYeJ2H8G-ULS7mrUCWwAlZPsBa2olmpBmtRjz_3x15yVAflglX5pAgDFtSvOmbC4EtMqnsV5x-6DjMusQWkExIRo54DIG1Q7VNcEdQzIqQx9ak2yWtKgmoleeNcIemBa8hBA8U27kAcEh28pwJkXd88zczO1NdQfZmZwGbYLzCSxzaIGhhLtQZrMolvVarSaoHAPvvVra1nzMJDpU84OBAno2HOfin06lu9SO-gfQTfe823rWCdVmo0d9a" />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-10 flex flex-col justify-end">
+              <h3 class="text-white font-headline font-bold text-3xl mb-2">Éleveurs</h3>
+              <p class="text-white/80 mb-6 max-w-md">Outils de gestion, accès aux intrants et visibilité accrue pour vos
+                produits.</p>
+              <button
+                class="w-fit text-primary-fixed font-label font-bold uppercase tracking-widest flex items-center gap-2">Découvrir
+                les outils <span class="material-symbols-outlined">arrow_forward</span></button>
+            </div>
+          </div>
+          <div class="md:col-span-4 group relative h-[400px] overflow-hidden rounded-xl">
+            <img alt="Marché" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              data-alt="vibrant market scene in Dakar with high quality fresh produce and poultry displayed artistically"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3P7HZznLb50Ud8MqhNqQSUKBdOs7pKt20XzSckO73Ft6Pt7Pi-b8jaZ0hHG6Kt9zaFoOkVghVszHnfTzqQ57nE6IsHk2mt6gsZ4dxVpwtaJkE-QZEXkCLRhHbQSMclmWsXn7lr_XHZQBYSgYTmciqKRM_AmntlSyQdRYIeTOuy_iXGsFgWZwMMwG3zgRVHjzavuwz-9XzUXgh8ARN5e1FBRXAQXjnUZl5HU0olSAO008SwdUMfuEg5dpFazUhFDsLGu1ZVWkhaxLt" />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-secondary/80 via-secondary/20 to-transparent p-10 flex flex-col justify-end">
+              <h3 class="text-white font-headline font-bold text-3xl mb-2">Acheteurs</h3>
+              <p class="text-white/80 mb-6">Accédez au meilleur de la production locale avec livraison garantie.</p>
+              <button
+                class="w-fit text-secondary-fixed font-label font-bold uppercase tracking-widest flex items-center gap-2">Acheter
+                <span class="material-symbols-outlined">arrow_forward</span></button>
+            </div>
+          </div>
+          <div class="md:col-span-12 group relative h-[300px] overflow-hidden rounded-xl bg-tertiary">
+            <div class="absolute inset-0 opacity-30 mix-blend-overlay">
+              <img alt="Partenaires" class="w-full h-full object-cover"
+                data-alt="business meeting between agricultural tech experts and local community leaders in a modern office"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYknp2xYRFciy5FZ0qms9NvIBtcczT5NzuRA_GgFUNTi-n-Z1SZKCHWe0ylB-sBbr9ogzHTQ8NCcRDgF9cFni687niC1lTm9KUBOLenMEs0Ku37MwMkOQOUoD6xM9-ua6hFAdeknzSrJYD89o_Zgz4waaOzVRbg41VHvjihP_GOyG3fEC-arVi8OXAj1IF_fy1mcy-lyL1s0N867gNdyq2UpSPSaBz0Zfdxpb6rkMZu9lkc-Ve5kdXEE9RB4yEVmNdZWuiS37dUrWR" />
+            </div>
+            <div class="relative h-full p-10 flex flex-col justify-center items-center text-center">
+              <h3 class="text-white font-headline font-bold text-4xl mb-4">Devenir Partenaire</h3>
+              <p class="text-white/90 max-w-2xl mb-8">Rejoignez l'écosystème AgroPoulet et proposez vos services
+                vétérinaires, aliments ou équipements.</p>
+              <button
+                class="bg-white text-tertiary px-10 py-4 rounded-full font-label font-bold uppercase tracking-widest">Nous
+                contacter</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Marketplace Carousel Preview -->
+    <section class="py-24 bg-white overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center justify-between mb-12">
+          <h2 class="font-headline font-bold text-3xl">Marché en direct</h2>
+          <div class="flex gap-2">
+            <button
+              class="p-3 rounded-full border border-outline-variant hover:bg-surface-container transition-colors"><span
+                class="material-symbols-outlined">chevron_left</span></button>
+            <button
+              class="p-3 rounded-full border border-outline-variant hover:bg-surface-container transition-colors"><span
+                class="material-symbols-outlined">chevron_right</span></button>
+          </div>
+        </div>
+        <div class="flex gap-6 overflow-x-auto pb-8 snap-x no-scrollbar">
+          <!-- Card 1 -->
+          <div class="min-w-[320px] snap-start bg-surface-container-low rounded-xl overflow-hidden shadow-sm group">
+            <div class="h-48 relative">
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                data-alt="basket of fresh organic brown eggs in a rustic wooden setting with soft morning light"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFDRb9fef9iShYFxH9YsTC7NY2D9jCuSvtuyCi_mVXfmXqZ0eGji3U7jAJ8MKs82Ns0lLtfrXC0ScmrRF7SuEOBpAkm5-thzkmRxznm1yB4edXVRSDuN2E_D8qx63cLn5X9q5AaysUAN1gPfO4oZ2a1wvEPKfyHKabFDRVIDlJqMbEknzMm2wwsmaeJ33xs1tS5AQNXXsISYap6BKyHkDsCT_-0cMuBJJvXzRnVQeB6gDfhNcneuYhb5JuNIR7lDUQs-lI4OB_FmL8" />
+              <span
+                class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold uppercase px-3 py-1 rounded-full">Disponible</span>
+            </div>
+            <div class="p-6">
+              <h4 class="font-headline font-bold text-lg mb-1">Plateau d'œufs Bio</h4>
+              <p class="text-on-surface-variant text-sm mb-4">Élevage de Mbour - Qualité Supérieure</p>
+              <div class="flex justify-between items-center">
+                <span class="text-primary font-bold text-xl">2 500 FCFA</span>
+                <button class="p-2 bg-primary-container text-on-primary-container rounded-lg"><span
+                    class="material-symbols-outlined">add_shopping_cart</span></button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="min-w-[320px] snap-start bg-surface-container-low rounded-xl overflow-hidden shadow-sm group">
+            <div class="h-48 relative">
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                data-alt="healthy broiler chicken in a well-ventilated poultry farm in Senegal"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrQE6rUCSaXCTz8WoEwPxXpn790Td7UhIqQZaWMKSNMwaCmSiIXj3sPudNqJt_Ggf610qTKItSR5XSRl_x4U_g7G9pu5i-P06Z7dWyNETG-Lkf9KUgakc5EKF-Jt0Ru1f3xb_C2XE7GEm7LIIKaFwAKJJKgJWhexfg7lzFN0RwGDPefwl9V4wJWOk1X-OZiQ8G3Sp2PcpoiI2eCps1d9otaMIDDktws5GBqdGq2Ujb-AU42lAz_ySDlp1V3wOe0x6XyJTsKjw9Prhl" />
+              <span
+                class="absolute top-4 left-4 bg-secondary text-white text-[10px] font-bold uppercase px-3 py-1 rounded-full">Nouveau</span>
+            </div>
+            <div class="p-6">
+              <h4 class="font-headline font-bold text-lg mb-1">Poulet de Chair (2kg+)</h4>
+              <p class="text-on-surface-variant text-sm mb-4">Ferme de Touba - Prêt à livrer</p>
+              <div class="flex justify-between items-center">
+                <span class="text-primary font-bold text-xl">4 000 FCFA</span>
+                <button class="p-2 bg-primary-container text-on-primary-container rounded-lg"><span
+                    class="material-symbols-outlined">add_shopping_cart</span></button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="min-w-[320px] snap-start bg-surface-container-low rounded-xl overflow-hidden shadow-sm group">
+            <div class="h-48 relative">
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                data-alt="professional farmer using a digital tablet to track growth charts in a high-tech poultry house"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgs-GEFkguQSezlP11jbszVV11qoS3Nl9alOo1XlORhFVyWB65LY3B82dzdN_l4IEX9HLzNsfIyKBskdSDmAGaJ-upUogpw0ltakqTTaO0U5bJMMgwr1Dg5QgBcam-ueGsSbL1clyyZT1VEWPlu9EvMbKxrUSRNOA0aCzk3ZJXaho2XoyK50DqjKAKYg5LozbJzeLijXwQvTzzDJeMsoNHktIfAZ1QGSzW1C7UWIVB7Lk73IyF_GPRDYiLU1VPnjHEqDIszV-2TOHi" />
+            </div>
+            <div class="p-6">
+              <h4 class="font-headline font-bold text-lg mb-1">Kit Alimentation 50kg</h4>
+              <p class="text-on-surface-variant text-sm mb-4">Fournisseur : NutriAgro Dakar</p>
+              <div class="flex justify-between items-center">
+                <span class="text-primary font-bold text-xl">18 500 FCFA</span>
+                <button class="p-2 bg-primary-container text-on-primary-container rounded-lg"><span
+                    class="material-symbols-outlined">add_shopping_cart</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Interactive Map Section (Mockup) -->
+    <section class="py-24 bg-surface-container-low">
+      <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+        <div
+          class="order-2 md:order-1 relative rounded-3xl overflow-hidden shadow-2xl aspect-square bg-surface-container-highest">
+          <img alt="Carte Touba" class="w-full h-full object-cover opacity-80"
+            data-alt="stylized architectural map of Touba with agricultural pins marking different poultry farm locations"
+            data-location="Touba, Senegal"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPG6s9n4ULSKHN8XnyQ7fsfEjQaK_Tjp2dzc7c6cw-ODmo1PJVHT1B6boOhyRf7WzTfBOggrQx0RiBjkYHozs_OvFVccIkn4dFcl6bJp7BURaE34Cj1iDL3_YiffoEY2_l0Aeqv4vdPckNCAputeHJW_nj6gNkamofPWBQzbIGdiigcZcti6nf4uovbbh8dYCfFTubD1L5xORyFUWIkzLBCjIFxglPbSN1EJBXq3LvcIBNiLp8sGbh03Hc_PaH3YotjC9i0ILrkPyB" />
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="bg-white/90 backdrop-blur p-6 rounded-2xl shadow-xl border border-primary/10">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></span>
+                <span class="font-bold">42 Fermes Actives à Touba</span>
+              </div>
+              <p class="text-sm text-on-surface-variant">Zone de production prioritaire</p>
+            </div>
+          </div>
+        </div>
+        <div class="order-1 md:order-2">
+          <span class="text-primary font-label font-bold tracking-[0.2em] uppercase text-xs">Expansion Locale</span>
+          <h2 class="font-headline font-extrabold text-5xl mt-4 mb-6 leading-tight">Suivez le développement de Touba.
+          </h2>
+          <p class="text-on-surface-variant text-lg mb-8 leading-relaxed">
+            Touba est au cœur de notre réseau. Grâce à notre carte interactive, localisez les fournisseurs d'aliments,
+            les services vétérinaires et les points de collecte en temps réel.
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-white shadow-sm">
+              <span class="material-symbols-outlined text-secondary">explore</span>
+              <div>
+                <h4 class="font-bold">Géolocalisation Précise</h4>
+                <p class="text-sm text-on-surface-variant">Ne perdez plus de temps à chercher vos partenaires.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-white shadow-sm">
+              <span class="material-symbols-outlined text-secondary">speed</span>
+              <div>
+                <h4 class="font-bold">Mise à jour Réelle</h4>
+                <p class="text-sm text-on-surface-variant">Stocks et prix actualisés toutes les heures.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials -->
+    <section class="py-24 bg-white overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="font-headline font-bold text-4xl">Ils nous font confiance</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="p-10 bg-primary-container/10 rounded-3xl relative">
+            <span
+              class="material-symbols-outlined text-primary text-6xl absolute top-6 right-10 opacity-20">format_quote</span>
+            <p class="text-xl font-body italic mb-8 relative z-10">"Grâce à AgroPoulet, j'ai pu augmenter ma production
+              de 40% en un an. Le suivi digital m'a permis d'éviter des pertes majeures que je ne comprenais pas
+              auparavant."</p>
+            <div class="flex items-center gap-4">
+              <img alt="Moussa" class="w-14 h-14 rounded-full"
+                data-alt="portrait of a proud middle-aged senegalese farmer in a green work shirt smiling at the camera"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDU9l8e45JFYhn2JZI2yyqYUUFjF4fe1FItDolHO86mSPLRQVIOPvzmMGwtmT7LXinP3G01WQIyUdewqV8zUdCdwCVjG7R0yQBeaYRzQwLIaH_mjcDUgw1Ir27uJ4Fyb-k7kylUv17RreBl0oaLn7Ptc6MVLZoxV4JqrCP-yXDMNtcKBGRJhWsQ8ftX6-vy0ENmcY2YAqDkJOGS2VncWm78Wj6bD4W9895303Myt9y2dMyIpDithjJjupNuGF1uv9t8l2wY-AZprigo" />
+              <div>
+                <h5 class="font-bold">Moussa Diop</h5>
+                <p class="text-sm text-on-surface-variant">Éleveur à Rufisque</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-10 bg-secondary-container/10 rounded-3xl relative">
+            <span
+              class="material-symbols-outlined text-secondary text-6xl absolute top-6 right-10 opacity-20">format_quote</span>
+            <p class="text-xl font-body italic mb-8 relative z-10">"En tant que restauratrice, la traçabilité est
+              capitale. Commander via l'app me donne une garantie de fraîcheur que je ne trouve nulle part ailleurs."
+            </p>
+            <div class="flex items-center gap-4">
+              <img alt="Awa" class="w-14 h-14 rounded-full"
+                data-alt="portrait of a professional senegalese woman in modern business attire in a bright office environment"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuChPwEeuucz5t5dXB4qI3YZhjJtu0VXM4pdiYR0SXcTGKKpniEaY7qwd6dA9kKD5jcwctxyhilrkGtVRXwo6MMosy-4xmUhSvOF6Rmf2bIIG5rGOVvipEjJpUnd1NwRXH4-DAVvM3oOA7jcfhiotGIL9HOc7BitlqDiFXMvXS182ZtqyNA9YqA8rBPzj99IY4LE1gdxw3SoCJ5ULVfs2Vb-EW1-DMLHRrHswnb0vfxkd8Htxhz2oOOLEBsjZOAZIuOcX3aEQ5TFkwBC" />
+              <div>
+                <h5 class="font-bold">Awa Ndiaye</h5>
+                <p class="text-sm text-on-surface-variant">Gérante de restaurant, Dakar</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer class="bg-[#efeeeb] dark:bg-emerald-950 w-full rounded-t-3xl mt-12 spacing-24 section-gap">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-8 py-16 max-w-7xl mx-auto">
+      <div class="space-y-6">
+        <div class="font-['Manrope'] font-black text-emerald-900 dark:text-emerald-400 text-3xl">AgroPoulet</div>
+        <p class="font-['Inter'] text-sm leading-relaxed text-slate-600 dark:text-emerald-500/80">
+          La révolution numérique au service de la souveraineté alimentaire du Sénégal. Rejoignez le mouvement "The
+          Digital Agronomist".
+        </p>
+        <div class="flex gap-4">
+          <a class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform"
+            href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
+          <a class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform"
+            href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+          <a class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform"
+            href="#"><span class="material-symbols-outlined">share</span></a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-headline font-bold text-lg mb-6">Navigation</h4>
+        <ul class="space-y-4">
+          <li><a
+              class="font-['Inter'] text-sm leading-relaxed text-slate-600 dark:text-emerald-500/80 hover:text-emerald-500 transition-colors"
+              href="#">À propos</a></li>
+          <li><a
+              class="font-['Inter'] text-sm leading-relaxed text-slate-600 dark:text-emerald-500/80 hover:text-emerald-500 transition-colors"
+              href="#">Devenir Fournisseur</a></li>
+          <li><a
+              class="font-['Inter'] text-sm leading-relaxed text-slate-600 dark:text-emerald-500/80 hover:text-emerald-500 transition-colors"
+              href="#">Guide Élevage</a></li>
+          <li><a
+              class="font-['Inter'] text-sm leading-relaxed text-slate-600 dark:text-emerald-500/80 hover:text-emerald-500 transition-colors"
+              href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-headline font-bold text-lg mb-6">Newsletter</h4>
+        <p class="text-sm text-on-surface-variant mb-4">Recevez les prix du marché hebdomadaires directement.</p>
+        <div class="flex gap-2">
+          <input class="flex-1 bg-white border-none rounded-full px-6 py-3 text-sm focus:ring-2 focus:ring-primary"
+            placeholder="votre@email.com" type="email" />
+          <button class="bg-primary text-white p-3 rounded-full"><span
+              class="material-symbols-outlined">send</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-8 py-8 border-t border-outline-variant/30 text-center">
+      <p class="font-['Inter'] text-sm leading-relaxed text-slate-600 dark:text-emerald-500/80">
+        © 2024 AgroPoulet Sénégal. Propulsé par Le Digital Agronomiste.
+      </p>
+    </div>
+  </footer>
+  <!-- Floating WhatsApp Button -->
+  <a class="fixed bottom-10 right-10 z-[100] w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-90 transition-all duration-300"
+    href="https://wa.me/221000000000" target="_blank">
+    <svg class="w-8 h-8 fill-current" viewbox="0 0 24 24">
+      <path
+        d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793 0-.852.448-1.271.607-1.445.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.088.275.073.376-.043.101-.116.433-.506.548-.68.116-.174.231-.145.39-.087.159.058 1.011.477 1.184.564.173.087.289.129.332.202.043.073.043.419-.101.824zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.176L2 22l4.957-1.3c1.473.845 3.177 1.3 5.043 1.3 5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.63 0-3.15-.42-4.47-1.16l-.32-.18-2.61.68.7-2.54-.2-.32C4.39 15.15 4 13.62 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z">
+      </path>
+    </svg>
+  </a>
+  <!-- BottomNavBar (Mobile Only) -->
+  <nav
+    class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#faf9f6]/80 dark:bg-emerald-950/90 backdrop-blur-md rounded-t-[1.5rem] border-t border-[#e3e2e0]/30 shadow-[0_-4px_20px_rgba(0,0,0,0.04)]">
+    <a class="flex flex-col items-center justify-center bg-emerald-100 dark:bg-emerald-800/50 text-[#005232] dark:text-emerald-300 rounded-2xl px-5 py-2 active:scale-90 duration-150 ease-out"
+      href="#">
+      <span class="material-symbols-outlined">home</span>
+      <span class="font-['Inter'] font-medium text-[10px] uppercase tracking-widest mt-1">Accueil</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-slate-500 dark:text-emerald-500/60 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 active:scale-90 duration-150 ease-out"
+      href="#">
+      <span class="material-symbols-outlined">storefront</span>
+      <span class="font-['Inter'] font-medium text-[10px] uppercase tracking-widest mt-1">Marché</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-slate-500 dark:text-emerald-500/60 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 active:scale-90 duration-150 ease-out"
+      href="#">
+      <span class="material-symbols-outlined">agriculture</span>
+      <span class="font-['Inter'] font-medium text-[10px] uppercase tracking-widest mt-1">Services</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-slate-500 dark:text-emerald-500/60 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 active:scale-90 duration-150 ease-out"
+      href="#">
+      <span class="material-symbols-outlined">person</span>
+      <span class="font-['Inter'] font-medium text-[10px] uppercase tracking-widest mt-1">Compte</span>
+    </a>
+  </nav>
+</body>
+
+</html>

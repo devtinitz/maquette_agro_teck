@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-error-container": "#93000a",
+            "error-container": "#ffdad6",
+            "secondary-fixed-dim": "#b1c5ff",
+            "on-background": "#1a1c1a",
+            "inverse-surface": "#2f312f",
+            "on-tertiary": "#ffffff",
+            "secondary": "#2559bd",
+            "surface-dim": "#dbdad7",
+            "primary-fixed-dim": "#80d8a6",
+            "primary": "#005232",
+            "on-tertiary-container": "#ffd1a2",
+            "secondary-fixed": "#dae2ff",
+            "on-surface-variant": "#3f4942",
+            "on-primary": "#ffffff",
+            "on-primary-fixed": "#002111",
+            "surface-tint": "#006d44",
+            "on-primary-fixed-variant": "#005232",
+            "primary-container": "#006d44",
+            "surface-container-high": "#e9e8e5",
+            "on-secondary-fixed": "#001946",
+            "inverse-on-surface": "#f1f1ee",
+            "error": "#ba1a1a",
+            "inverse-primary": "#80d8a6",
+            "on-secondary-fixed-variant": "#00419e",
+            "outline": "#6f7a71",
+            "on-secondary-container": "#002f76",
+            "on-tertiary-fixed": "#2b1700",
+            "tertiary-container": "#885300",
+            "secondary-container": "#6c98ff",
+            "tertiary": "#683e00",
+            "surface-container-low": "#f4f3f1",
+            "on-primary-container": "#93ecb8",
+            "surface-container": "#efeeeb",
+            "surface-container-lowest": "#ffffff",
+            "background": "#faf9f6",
+            "outline-variant": "#bec9bf",
+            "primary-fixed": "#9cf5c1",
+            "tertiary-fixed": "#ffddba",
+            "on-error": "#ffffff",
+            "surface-variant": "#e3e2e0",
+            "on-tertiary-fixed-variant": "#673d00",
+            "on-secondary": "#ffffff",
+            "surface-bright": "#faf9f6",
+            "tertiary-fixed-dim": "#ffb866",
+            "surface": "#faf9f6",
+            "on-surface": "#1a1c1a",
+            "surface-container-highest": "#e3e2e0"
+          },
+          fontFamily: {
+            "headline": ["Manrope"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .glass-nav {
+      backdrop-filter: blur(12px);
+    }
+  </style>
+</head>
+
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+  <!-- TopAppBar -->
+  <header
+    class="bg-[#faf9f6]/80 dark:bg-emerald-950/90 backdrop-blur-md sticky top-0 z-50 shadow-[0_12px_40px_rgba(26,28,26,0.06)] no-border">
+    <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+      <div class="flex items-center gap-8">
+        <span
+          class="text-2xl font-black text-[#005232] dark:text-emerald-400 tracking-tighter font-headline">AgroPoulet</span>
+        <nav class="hidden md:flex items-center gap-8">
+        <a class="text-[#005232] dark:text-emerald-300 font-bold border-b-2 border-[#005232] font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+          href="accueilWeb.html">Accueil</a>
+        <a class="text-[#1a1c1a] dark:text-emerald-100 opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+          href="aproposWeb.html">A propos</a>
+          <a class="text-[#1a1c1a] dark:text-emerald-100 opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+            href="marketplaceWeb.html">Marché</a>
+          <a class="text-[#1a1c1a] dark:text-emerald-100 opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+            href="formationWeb.html">Formations</a>
+          <a class="text-[#1a1c1a] dark:text-emerald-100 opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+            href="carteeleveurWeb.html">Carte</a>
+        <a class="text-[#1a1c1a] dark:text-emerald-100 opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+          href="contactWeb.html">Contact</a>
+        <a class="text-[#1a1c1a] dark:text-emerald-100 opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+          href="#">Connexion</a>
+      </nav>
+      </div>
+      <div class="flex items-center gap-4">
+        <button class="p-2 rounded-full hover:bg-surface-container-high transition-all">
+          <span class="material-symbols-outlined text-[#005232] dark:text-emerald-400">notifications</span>
+        </button>
+        <div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+          <img class="w-full h-full object-cover"
+            data-alt="portrait of a confident senegalese poultry farmer in professional attire with a warm smile"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlJBFPDvlSw3rYCqLbTtVwkQZBRamjb4afSxYHRg-ZMwqVKkmFGqA5sTXF2kXWztVDJ-6EKNc_s3fgRJQs-PfzdPBTA6Ib-uknLPwU22PZjLBdkapZus8E2A0ClCy67C8dC6EUtMd7UuI9aUTitgosPNxwBrWH6Lsn7TBEw-ri8tx7zw6P1T6v7QNoNeYg2GvMHFGALAPlY6j3CbwHv1Cf-sAb1y-RTAQVjEcFTpJ2qY_X1aQDK6j3frQv8TTWgls6Uan72R6ciMO_" />
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="max-w-7xl mx-auto px-6 pt-12">
+    <!-- Hero Section -->
+    <section class="mb-16">
+      <div class="relative rounded-3xl overflow-hidden h-[400px] flex items-center bg-primary">
+        <img class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay"
+          data-alt="wide shot of a modern sustainable poultry farm with sunlight streaming through large windows and vibrant green surroundings"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2q-dmBuQFgSgo4C4QDfmEgxTSvPho46AlIF0CLB-sbHCfDNTav4-4to8NnFQoL8lhzKZE-7s_-U2uoWwS5tpBi1K8pD3pujjxyo6l-Iv5tNuamGoDlXnCu2t4MsT06ljaOf2mIF53L2M0jXFbT4lbPPruLQFfuvazLN4cW9LW59KEsSGcsrGza7dipLd4xqWZ6Y6I-JEa3GmD_eWdGx9dkLONRf31b4ZAWu04Hfe4e-sLo_SBwEtuNm1VYa_jjNd8cZyo3fnsUToD" />
+        <div class="relative z-10 px-12 max-w-2xl">
+          <span
+            class="inline-block px-4 py-1 rounded-full bg-secondary text-white text-xs font-bold uppercase tracking-widest mb-6">Expertise
+            Avicole</span>
+          <h1 class="text-white font-headline text-5xl font-extrabold tracking-tight leading-tight mb-6">Optimisez votre
+            élevage avec le meilleur de l'Agrotech.</h1>
+          <p class="text-primary-fixed body-lg opacity-90 mb-8 max-w-lg">Des solutions de nutrition de précision et
+            équipements connectés pour une productivité durable au Sénégal.</p>
+          <div class="flex gap-4">
+            <button
+              class="bg-gradient-to-br from-primary to-primary-container text-white px-8 py-4 rounded-full font-bold uppercase text-xs tracking-widest hover:scale-105 transition-transform">Explorer
+              le catalogue</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="flex flex-col md:flex-row gap-12">
+      <!-- Filters Sidebar -->
+      <aside class="w-full md:w-64 space-y-10">
+        <div>
+          <h3 class="font-headline text-xl font-bold mb-6 text-on-surface">Type d'aliment</h3>
+          <div class="space-y-4">
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox" />
+              <span
+                class="text-on-surface-variant font-medium group-hover:text-primary transition-colors">Démarrage</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary"
+                type="checkbox" />
+              <span
+                class="text-on-surface-variant font-medium group-hover:text-primary transition-colors">Croissance</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox" />
+              <span
+                class="text-on-surface-variant font-medium group-hover:text-primary transition-colors">Finition</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox" />
+              <span
+                class="text-on-surface-variant font-medium group-hover:text-primary transition-colors">Pondeuse</span>
+            </label>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-headline text-xl font-bold mb-6 text-on-surface">Marques</h3>
+          <div class="space-y-4">
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox" />
+              <span class="text-on-surface-variant font-medium group-hover:text-primary transition-colors">NMA
+                Sanders</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox" />
+              <span class="text-on-surface-variant font-medium group-hover:text-primary transition-colors">Sedima</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox" />
+              <span class="text-on-surface-variant font-medium group-hover:text-primary transition-colors">Avisen</span>
+            </label>
+          </div>
+        </div>
+        <div class="bg-surface-container-low p-6 rounded-2xl">
+          <h4 class="font-headline font-bold text-tertiary mb-2">Conseil d'expert</h4>
+          <p class="text-sm text-on-surface-variant leading-relaxed">Le saviez-vous ? Une transition douce entre
+            croissance et finition réduit le stress métabolique de 15%.</p>
+        </div>
+      </aside>
+      <!-- Product Grid -->
+      <div class="flex-1">
+        <div class="flex justify-between items-center mb-10">
+          <p class="text-on-surface-variant"><span class="font-bold text-primary">24</span> produits trouvés</p>
+          <div class="flex items-center gap-4 bg-surface-container rounded-full px-4 py-2">
+            <span class="text-sm font-medium text-on-surface-variant">Trier par:</span>
+            <select class="bg-transparent border-none text-sm font-bold text-primary focus:ring-0 cursor-pointer">
+              <option>Plus récents</option>
+              <option>Prix croissant</option>
+              <option>Prix décroissant</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Product Card 1 -->
+          <div
+            class="group bg-surface-container-lowest rounded-3xl overflow-hidden transition-all hover:shadow-[0_20px_50px_rgba(0,82,50,0.1)] flex flex-col h-full">
+            <div class="relative aspect-square overflow-hidden bg-surface-container">
+              <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                data-alt="premium bag of organic chicken feed on a rustic wooden floor with soft daylight"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7vcGkLD9f9ddw01ACWUrAQ9BhW7rtL6v7J6ZoIcqpcfUsBtbK7RX0jJR2h5XuSCe6fsKXUtWSlSSL95l1BZond0sbXdLdtFKn6CF_yO_Wat7qobiKzbNULG6cWiBikXnzpWeGWwAIlK8993I37HnR3Oz0gew0Iw4cmUhmH9MTJ332_kZ6BkIObG1aY-7a-dVIENPRG_IgIP5RtEm4P5fpJ3fCXUGVUE18d58cPYJSbjtUG99KiTAor3ZHpQS4RVgys3Psu0SFKn4n" />
+              <span
+                class="absolute top-4 left-4 bg-tertiary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Populaire</span>
+              <button
+                class="absolute bottom-4 right-4 w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary shadow-lg hover:bg-primary hover:text-white transition-all scale-0 group-hover:scale-100">
+                <span class="material-symbols-outlined">shopping_cart</span>
+              </button>
+            </div>
+            <div class="p-6 flex-1 flex flex-col">
+              <div class="flex justify-between items-start mb-2">
+                <p class="text-[10px] font-bold text-secondary uppercase tracking-widest">Alimentation</p>
+                <div class="flex items-center gap-1 text-tertiary">
+                  <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="text-xs font-bold">4.9</span>
+                </div>
+              </div>
+              <h3 class="font-headline font-bold text-xl mb-2 text-on-surface leading-snug">Croissance Premium 50kg</h3>
+              <p class="text-on-surface-variant text-sm mb-6 flex-1">Haute teneur en protéines pour un développement
+                musculaire optimal.</p>
+              <div class="flex justify-between items-center pt-4 border-t border-outline-variant/10">
+                <span class="text-2xl font-black text-primary">18.500 FCFA</span>
+                <button
+                  class="text-primary font-bold text-sm uppercase tracking-wider hover:underline transition-all">Commander</button>
+              </div>
+            </div>
+          </div>
+          <!-- Product Card 2 -->
+          <div
+            class="group bg-surface-container-lowest rounded-3xl overflow-hidden transition-all hover:shadow-[0_20px_50px_rgba(0,82,50,0.1)] flex flex-col h-full">
+            <div class="relative aspect-square overflow-hidden bg-surface-container">
+              <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                data-alt="smart automatic poultry water dispenser in a modern farm setting"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEugDXzYOIzlXcWt2-cLFF_i2gUzgnMjdwoz8ijYi_-Q8UecDto7s4-1AlPynGBYqRLceHEypRlTTF2Lo8KyRZrWMuSKBh_VFM1Xv1Qpop7Cbseih3wkCyAOGZ5k83kXcBTU_I5tcqtVLGQT5lcoWE9MojrYNayk0ng0MoWiKwM74AwKBo5catQWb3yfWWBv1PUKiCMlSwm3Z2lqnY6Mubsk5_I6IPPtlJPfaSHYP5hBvNCvFYnvVRr0hKmtB_nZbqa-3pcmwIEfrc" />
+              <button
+                class="absolute bottom-4 right-4 w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary shadow-lg hover:bg-primary hover:text-white transition-all scale-0 group-hover:scale-100">
+                <span class="material-symbols-outlined">shopping_cart</span>
+              </button>
+            </div>
+            <div class="p-6 flex-1 flex flex-col">
+              <div class="flex justify-between items-start mb-2">
+                <p class="text-[10px] font-bold text-secondary uppercase tracking-widest">Équipement</p>
+                <div class="flex items-center gap-1 text-tertiary">
+                  <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="text-xs font-bold">4.7</span>
+                </div>
+              </div>
+              <h3 class="font-headline font-bold text-xl mb-2 text-on-surface leading-snug">Abreuvoir Automatique Pro
+              </h3>
+              <p class="text-on-surface-variant text-sm mb-6 flex-1">Système anti-gaspillage avec capteur de niveau
+                d'eau intégré.</p>
+              <div class="flex justify-between items-center pt-4 border-t border-outline-variant/10">
+                <span class="text-2xl font-black text-primary">4.200 FCFA</span>
+                <button
+                  class="text-primary font-bold text-sm uppercase tracking-wider hover:underline transition-all">Commander</button>
+              </div>
+            </div>
+          </div>
+          <!-- Product Card 3 -->
+          <div
+            class="group bg-surface-container-lowest rounded-3xl overflow-hidden transition-all hover:shadow-[0_20px_50px_rgba(0,82,50,0.1)] flex flex-col h-full">
+            <div class="relative aspect-square overflow-hidden bg-surface-container">
+              <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                data-alt="close up of premium laying hen feed mix with visible corn and grains in a copper bowl"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd_4JDQvWiyNUWRxLDohIN0E2emK8s6HN-lM7hQ7UWu2LUc2phrfLjBH8xD7wSHnUFIoVp0THgm_B4YP2cHo-OdWZy4yj1RHqd_-edZnz_arVVhMRHEQiOL9SOQTrEqhKOcCSpkKLf1h02tX5raM5gISwEwEC9IJmPiBmiqbnFz6G5R_fLL9eVUjTGpsQOhkgVdsxIy3U_rtb28mVmNxB8m0CE4fy8i7SE7xk37PnJuYWtKwVDcpjobdRe0yZ0y-QGoMo156RrhMQw" />
+              <span
+                class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Nouveau</span>
+              <button
+                class="absolute bottom-4 right-4 w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary shadow-lg hover:bg-primary hover:text-white transition-all scale-0 group-hover:scale-100">
+                <span class="material-symbols-outlined">shopping_cart</span>
+              </button>
+            </div>
+            <div class="p-6 flex-1 flex flex-col">
+              <div class="flex justify-between items-start mb-2">
+                <p class="text-[10px] font-bold text-secondary uppercase tracking-widest">Alimentation</p>
+                <div class="flex items-center gap-1 text-tertiary">
+                  <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="text-xs font-bold">5.0</span>
+                </div>
+              </div>
+              <h3 class="font-headline font-bold text-xl mb-2 text-on-surface leading-snug">Mix Pondeuse Fortifié</h3>
+              <p class="text-on-surface-variant text-sm mb-6 flex-1">Riche en calcium pour des œufs à coquille solide et
+                jaune éclatant.</p>
+              <div class="flex justify-between items-center pt-4 border-t border-outline-variant/10">
+                <span class="text-2xl font-black text-primary">17.200 FCFA</span>
+                <button
+                  class="text-primary font-bold text-sm uppercase tracking-wider hover:underline transition-all">Commander</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Bento Style Section -->
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div
+            class="bg-primary-container rounded-3xl p-10 flex flex-col justify-between text-on-primary-container relative overflow-hidden group">
+            <div class="relative z-10">
+              <h2 class="text-3xl font-headline font-black mb-4 leading-tight">Besoin d'un approvisionnement en gros ?
+              </h2>
+              <p class="text-primary-fixed opacity-90 mb-8 max-w-sm">Bénéficiez de tarifs préférentiels et d'une
+                livraison prioritaire pour les commandes de plus de 5 tonnes.</p>
+              <button
+                class="bg-white text-primary px-8 py-3 rounded-full font-bold uppercase text-xs tracking-widest hover:scale-105 transition-all">Contacter
+                un conseiller</button>
+            </div>
+            <span
+              class="material-symbols-outlined absolute -bottom-10 -right-10 text-[200px] opacity-10 rotate-12 group-hover:rotate-0 transition-transform duration-700">agriculture</span>
+          </div>
+          <div class="bg-surface-container rounded-3xl p-10 flex flex-col justify-center">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-12 h-12 bg-secondary text-white rounded-2xl flex items-center justify-center">
+                <span class="material-symbols-outlined">local_shipping</span>
+              </div>
+              <h3 class="text-xl font-headline font-bold">Livraison partout au Sénégal</h3>
+            </div>
+            <p class="text-on-surface-variant mb-6">Nous livrons vos commandes directement sur votre site d'exploitation
+              sous 24h à 48h, de Dakar à Tambacounda.</p>
+            <a class="text-secondary font-bold flex items-center gap-2 group" href="#">
+              Consulter les zones de livraison
+              <span
+                class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- Footer -->
+  <footer class="bg-[#efeeeb] dark:bg-emerald-950 w-full rounded-t-3xl mt-24">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-8 py-16 max-w-7xl mx-auto">
+      <div class="space-y-6">
+        <span class="font-['Manrope'] font-black text-emerald-900 dark:text-emerald-400 text-3xl">AgroPoulet</span>
+        <p class="font-['Inter'] text-sm leading-relaxed text-slate-600 dark:text-emerald-500/80 max-w-xs">
+          Révolutionner l'aviculture sénégalaise par la technologie et l'expertise nutritionnelle.
+        </p>
+        <div class="flex gap-4">
+          <a class="w-10 h-10 rounded-full bg-white dark:bg-emerald-900 flex items-center justify-center text-emerald-900 dark:text-emerald-400 hover:scale-110 transition-transform shadow-sm"
+            href="#">
+            <span class="material-symbols-outlined">social_leaderboard</span>
+          </a>
+          <a class="w-10 h-10 rounded-full bg-white dark:bg-emerald-900 flex items-center justify-center text-emerald-900 dark:text-emerald-400 hover:scale-110 transition-transform shadow-sm"
+            href="#">
+            <span class="material-symbols-outlined">alternate_email</span>
+          </a>
+        </div>
+      </div>
+      <div class="space-y-6">
+        <h4 class="font-headline font-bold text-emerald-900 dark:text-emerald-400 uppercase tracking-widest text-xs">
+          Navigation</h4>
+        <ul class="space-y-4">
+          <li><a
+              class="text-slate-600 dark:text-emerald-500/80 hover:text-emerald-500 transition-colors font-['Inter'] text-sm leading-relaxed"
+              href="#">À propos</a></li>
+          <li><a
+              class="text-slate-600 dark:text-emerald-500/80 hover:text-emerald-500 transition-colors font-['Inter'] text-sm leading-relaxed"
+              href="#">Devenir Fournisseur</a></li>
+          <li><a
+              class="text-slate-600 dark:text-emerald-500/80 hover:text-emerald-500 transition-colors font-['Inter'] text-sm leading-relaxed"
+              href="#">Guide Élevage</a></li>
+          <li><a
+              class="text-slate-600 dark:text-emerald-500/80 hover:text-emerald-500 transition-colors font-['Inter'] text-sm leading-relaxed"
+              href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="space-y-6">
+        <h4 class="font-headline font-bold text-emerald-900 dark:text-emerald-400 uppercase tracking-widest text-xs">
+          Newsletter</h4>
+        <p class="text-slate-600 dark:text-emerald-500/80 font-['Inter'] text-sm leading-relaxed">Recevez nos conseils
+          techniques et nos meilleures offres bimensuelles.</p>
+        <div class="flex">
+          <input
+            class="flex-1 bg-white border-none rounded-l-full px-6 py-3 focus:ring-2 focus:ring-emerald-500 text-sm"
+            placeholder="votre@email.com" type="email" />
+          <button class="bg-emerald-900 text-white px-6 py-3 rounded-r-full hover:bg-emerald-800 transition-colors">
+            <span class="material-symbols-outlined">send</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="max-w-7xl mx-auto px-8 py-8 border-t border-slate-200 dark:border-emerald-900/50 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="font-['Inter'] text-sm leading-relaxed text-slate-600 dark:text-emerald-500/80">© 2024 AgroPoulet
+        Sénégal. Propulsé par Le Digital Agronomiste.</p>
+      <div class="flex gap-8">
+        <a class="text-xs text-slate-400 hover:text-emerald-500 transition-colors" href="#">Mentions Légales</a>
+        <a class="text-xs text-slate-400 hover:text-emerald-500 transition-colors" href="#">Confidentialité</a>
+      </div>
+    </div>
+  </footer>
+  <!-- BottomNavBar (Mobile Only via JSON instructions) -->
+  <nav
+    class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#faf9f6]/80 dark:bg-emerald-950/90 backdrop-blur-md rounded-t-[1.5rem] border-t border-[#e3e2e0]/30 shadow-[0_-4px_20px_rgba(0,0,0,0.04)]">
+    <a class="flex flex-col items-center justify-center text-slate-500 dark:text-emerald-500/60 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 active:scale-90 duration-150 ease-out"
+      href="#">
+      <span class="material-symbols-outlined">home</span>
+      <span class="font-['Inter'] font-medium text-[10px] uppercase tracking-widest mt-1">Accueil</span>
+    </a>
+    <a class="flex flex-col items-center justify-center bg-emerald-100 dark:bg-emerald-800/50 text-[#005232] dark:text-emerald-300 rounded-2xl px-5 py-2 active:scale-90 duration-150 ease-out"
+      href="#">
+      <span class="material-symbols-outlined">storefront</span>
+      <span class="font-['Inter'] font-medium text-[10px] uppercase tracking-widest mt-1">Marché</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-slate-500 dark:text-emerald-500/60 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 active:scale-90 duration-150 ease-out"
+      href="#">
+      <span class="material-symbols-outlined">agriculture</span>
+      <span class="font-['Inter'] font-medium text-[10px] uppercase tracking-widest mt-1">Services</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-slate-500 dark:text-emerald-500/60 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 active:scale-90 duration-150 ease-out"
+      href="#">
+      <span class="material-symbols-outlined">person</span>
+      <span class="font-['Inter'] font-medium text-[10px] uppercase tracking-widest mt-1">Compte</span>
+    </a>
+  </nav>
+</body>
+
+</html>

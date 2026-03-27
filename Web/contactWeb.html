@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Contact - AgroPoulet Sénégal</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-error-container": "#93000a",
+            "error-container": "#ffdad6",
+            "secondary-fixed-dim": "#b1c5ff",
+            "on-background": "#1a1c1a",
+            "inverse-surface": "#2f312f",
+            "on-tertiary": "#ffffff",
+            "secondary": "#2559bd",
+            "surface-dim": "#dbdad7",
+            "primary-fixed-dim": "#80d8a6",
+            "primary": "#005232",
+            "on-tertiary-container": "#ffd1a2",
+            "secondary-fixed": "#dae2ff",
+            "on-surface-variant": "#3f4942",
+            "on-primary": "#ffffff",
+            "on-primary-fixed": "#002111",
+            "surface-tint": "#006d44",
+            "on-primary-fixed-variant": "#005232",
+            "primary-container": "#006d44",
+            "surface-container-high": "#e9e8e5",
+            "on-secondary-fixed": "#001946",
+            "inverse-on-surface": "#f1f1ee",
+            "error": "#ba1a1a",
+            "inverse-primary": "#80d8a6",
+            "on-secondary-fixed-variant": "#00419e",
+            "outline": "#6f7a71",
+            "on-secondary-container": "#002f76",
+            "on-tertiary-fixed": "#2b1700",
+            "tertiary-container": "#885300",
+            "secondary-container": "#6c98ff",
+            "tertiary": "#683e00",
+            "surface-container-low": "#f4f3f1",
+            "on-primary-container": "#93ecb8",
+            "surface-container": "#efeeeb",
+            "surface-container-lowest": "#ffffff",
+            "background": "#faf9f6",
+            "outline-variant": "#bec9bf",
+            "primary-fixed": "#9cf5c1",
+            "tertiary-fixed": "#ffddba",
+            "on-error": "#ffffff",
+            "surface-variant": "#e3e2e0",
+            "on-tertiary-fixed-variant": "#673d00",
+            "on-secondary": "#ffffff",
+            "surface-bright": "#faf9f6",
+            "tertiary-fixed-dim": "#ffb866",
+            "surface": "#faf9f6",
+            "on-surface": "#1a1c1a",
+            "surface-container-highest": "#e3e2e0"
+          },
+          fontFamily: {
+            "headline": ["Manrope"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    body {
+      background-color: #faf9f6;
+      color: #1a1c1a;
+    }
+  </style>
+</head>
+
+<body class="font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+  <!-- TopAppBar -->
+  <header class="bg-[#faf9f6]/80 backdrop-blur-md sticky top-0 z-50 no-border shadow-[0_12px_40px_rgba(26,28,26,0.06)]">
+    <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+      <div class="flex items-center gap-4">
+        <span class="text-2xl font-black text-[#005232] tracking-tighter font-headline">AgroPoulet</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-8">
+        <a class="text-[#005232] dark:text-emerald-300 font-bold border-b-2 border-[#005232] font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+          href="accueilWeb.html">Accueil</a>
+        <a class="text-[#1a1c1a] dark:text-emerald-100 opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+          href="aproposWeb.html">A propos</a>
+          <a class="text-[#1a1c1a] dark:text-emerald-100 opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+            href="marketplaceWeb.html">Marché</a>
+          <a class="text-[#1a1c1a] dark:text-emerald-100 opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+            href="formationWeb.html">Formations</a>
+          <a class="text-[#1a1c1a] dark:text-emerald-100 opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+            href="carteeleveurWeb.html">Carte</a>
+        <a class="text-[#1a1c1a] dark:text-emerald-100 opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+          href="contactWeb.html">Contact</a>
+        <a class="text-[#1a1c1a] dark:text-emerald-100 opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+          href="#">Connexion</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <button
+          class="material-symbols-outlined text-[#005232] p-2 hover:bg-surface-container rounded-full transition-colors">notifications</button>
+        <div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden">
+          <img class="w-full h-full object-cover"
+            data-alt="Portrait of a smiling professional Senegalese farmer wearing a traditional hat in soft natural light"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn3qgoMcGR5GsfG02cxJv3uZ-h-Bp-hosJqwN6Z4eIU_-CkRQfif4uLVm41q6-5Fbz_O0JTYOC0g-lTe4UazXl8ADfRD43NkhdokUKigqi7H0-GizPp9-AIjpqNE9zhDnj1uln1lYjdBey-NvHEMVCgIoPQeDxEeDxN_9uXwLHK5oASCx21I83jFpAjiZQ1r7fQp3lC-FGJ-GtaUCIXvHcXBW62a2Wybd6gibWHMDTtATgN3JX5740ezQ0v3X3AQ3Ldf3nofj5p5_C" />
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="max-w-7xl mx-auto px-6 py-16 md:py-24">
+    <!-- Section Header -->
+    <div class="mb-16">
+      <h1 class="font-headline font-black text-5xl md:text-6xl text-primary tracking-tighter mb-4">Contactez
+        l'Expertise.</h1>
+      <p class="text-on-surface-variant text-lg md:text-xl max-w-2xl font-body leading-relaxed">
+        Besoin d'un conseil agronomique ou d'une assistance technique ? Notre équipe de spécialistes est à votre écoute
+        pour transformer votre exploitation.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+      <!-- Left Column: Info & Socials -->
+      <div class="lg:col-span-5 space-y-12">
+        <!-- Contact Cards Container -->
+        <div class="space-y-6">
+          <div
+            class="p-8 rounded-xl bg-surface-container-low transition-all hover:bg-surface-container shadow-sm group">
+            <div class="flex items-center gap-6">
+              <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-on-primary">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
+              </div>
+              <div>
+                <h3 class="font-headline font-bold text-xl text-primary mb-1">Notre Siège</h3>
+                <p class="text-on-surface-variant font-body">122 Avenue Cheikh Anta Diop, Dakar, Sénégal</p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="p-8 rounded-xl bg-surface-container-low transition-all hover:bg-surface-container shadow-sm group">
+            <div class="flex items-center gap-6">
+              <div class="w-14 h-14 rounded-full bg-secondary flex items-center justify-center text-on-primary">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
+              </div>
+              <div>
+                <h3 class="font-headline font-bold text-xl text-secondary mb-1">Téléphone</h3>
+                <p class="text-on-surface-variant font-body">+221 33 800 00 00</p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="p-8 rounded-xl bg-surface-container-low transition-all hover:bg-surface-container shadow-sm group">
+            <div class="flex items-center gap-6">
+              <div class="w-14 h-14 rounded-full bg-tertiary flex items-center justify-center text-on-primary">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mail</span>
+              </div>
+              <div>
+                <h3 class="font-headline font-bold text-xl text-tertiary mb-1">Email</h3>
+                <p class="text-on-surface-variant font-body">contact@agropoulet.sn</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Map Integration -->
+        <div class="rounded-xl overflow-hidden shadow-[0_12px_40px_rgba(26,28,26,0.06)] aspect-video relative group">
+          <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 z-10">
+          </div>
+          <img class="w-full h-full object-cover"
+            data-alt="Satellite and topographic view of Dakar city coast with a professional marker on the business district"
+            data-location="Dakar"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWGyf8q5PrB0RdpzInX4Pm-5srWYhRZQ37mCuAQfYTpuxKddcfHOaJI1JvvxscLm69UcYHR7F6tGz-s8gnGNuQPNiDb4viqRHQgI98CzNNYVDuUuTahd02wp1gRJzwIZE3SvAn_NczHTRiMgDi2u9ga-Zhr8VUSRYc3SmPV_CP9tktpcDHUPKEqkLBleT6Zck0TAPNKn3pkzg2L_GkIVM5jh9QD_iLXz2Z5I5_wfN4jw7Qtn_YXHQ3NXncoERAvH0asgSWJeDEymoF" />
+          <div
+            class="absolute bottom-4 left-4 z-20 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-sm">explore</span>
+            <span class="text-xs font-bold uppercase tracking-widest text-on-surface">Ouvrir dans Maps</span>
+          </div>
+        </div>
+        <!-- Social Media -->
+        <div class="space-y-4">
+          <h4 class="font-headline font-bold text-sm uppercase tracking-widest text-outline">Suivez-nous</h4>
+          <div class="flex gap-4">
+            <a class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white transition-all duration-300"
+              href="#">
+              <span class="material-symbols-outlined">share</span>
+            </a>
+            <a class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white transition-all duration-300"
+              href="#">
+              <span class="material-symbols-outlined">public</span>
+            </a>
+            <a class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white transition-all duration-300"
+              href="#">
+              <span class="material-symbols-outlined">rss_feed</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Right Column: Form -->
+      <div
+        class="lg:col-span-7 bg-surface-container-lowest p-10 md:p-16 rounded-3xl shadow-[0_12px_40px_rgba(26,28,26,0.06)] border border-outline-variant/10">
+        <form class="space-y-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="space-y-2">
+              <label class="font-headline font-bold text-sm text-primary uppercase tracking-wide">Prénom &amp;
+                Nom</label>
+              <input
+                class="w-full bg-surface-container-highest border-none rounded-xl px-6 py-4 focus:ring-2 focus:ring-primary transition-all font-body text-on-surface"
+                placeholder="Abdoulaye Diallo" type="text" />
+            </div>
+            <div class="space-y-2">
+              <label class="font-headline font-bold text-sm text-primary uppercase tracking-wide">Email</label>
+              <input
+                class="w-full bg-surface-container-highest border-none rounded-xl px-6 py-4 focus:ring-2 focus:ring-primary transition-all font-body text-on-surface"
+                placeholder="diallo@domaine.sn" type="email" />
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label class="font-headline font-bold text-sm text-primary uppercase tracking-wide">Sujet de votre
+              demande</label>
+            <select
+              class="w-full bg-surface-container-highest border-none rounded-xl px-6 py-4 focus:ring-2 focus:ring-primary transition-all font-body text-on-surface appearance-none">
+              <option>Assistance Technique Élevage</option>
+              <option>Devenir Fournisseur</option>
+              <option>Partenariats</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="space-y-2">
+            <label class="font-headline font-bold text-sm text-primary uppercase tracking-wide">Votre Message</label>
+            <textarea
+              class="w-full bg-surface-container-highest border-none rounded-xl px-6 py-4 focus:ring-2 focus:ring-primary transition-all font-body text-on-surface resize-none"
+              placeholder="Comment pouvons-nous vous aider aujourd'hui ?" rows="6"></textarea>
+          </div>
+          <div class="flex flex-col md:flex-row items-center justify-between gap-6 pt-4">
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox" />
+              <span
+                class="text-sm text-on-surface-variant font-body group-hover:text-primary transition-colors">J'accepte
+                la politique de confidentialité.</span>
+            </label>
+            <button
+              class="w-full md:w-auto bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold px-12 py-4 rounded-full shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-3"
+              type="submit">
+              Envoyer le message
+              <span class="material-symbols-outlined text-lg">send</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+  <!-- Footer -->
+  <footer class="bg-[#efeeeb] w-full rounded-t-3xl mt-24">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-8 py-16 max-w-7xl mx-auto">
+      <div class="space-y-6">
+        <span class="font-headline font-black text-2xl text-emerald-900 tracking-tighter">AgroPoulet.</span>
+        <p class="font-body text-slate-600 text-sm leading-relaxed max-w-xs">
+          L'excellence technologique au service de l'aviculture Sénégalaise. Connecter, Produire, Réussir.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-8">
+        <div class="space-y-4">
+          <h5 class="font-headline font-bold text-emerald-900 text-xs uppercase tracking-widest">Liens</h5>
+          <ul class="space-y-2 font-body text-sm">
+            <li><a class="text-slate-600 hover:text-emerald-500 transition-colors" href="#">À propos</a></li>
+            <li><a class="text-slate-600 hover:text-emerald-500 transition-colors" href="#">Devenir Fournisseur</a></li>
+            <li><a class="text-slate-600 hover:text-emerald-500 transition-colors" href="#">Guide Élevage</a></li>
+            <li><a class="text-emerald-700 underline font-bold" href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="space-y-4">
+          <h5 class="font-headline font-bold text-emerald-900 text-xs uppercase tracking-widest">Légal</h5>
+          <ul class="space-y-2 font-body text-sm">
+            <li><a class="text-slate-600 hover:text-emerald-500 transition-colors" href="#">CGU</a></li>
+            <li><a class="text-slate-600 hover:text-emerald-500 transition-colors" href="#">Confidentialité</a></li>
+            <li><a class="text-slate-600 hover:text-emerald-500 transition-colors" href="#">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="space-y-6">
+        <h5 class="font-headline font-bold text-emerald-900 text-xs uppercase tracking-widest">Newsletter</h5>
+        <div class="flex gap-2">
+          <input class="bg-surface-container-highest border-none rounded-l-full px-4 py-2 w-full text-sm font-body"
+            placeholder="Votre email" type="email" />
+          <button class="bg-primary text-on-primary px-6 py-2 rounded-r-full hover:bg-primary-container transition-all">
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </button>
+        </div>
+        <p class="text-[10px] text-slate-500 uppercase tracking-widest">© 2024 AgroPoulet Sénégal. Propulsé par Le
+          Digital Agronomiste.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- BottomNavBar (Mobile Only) -->
+  <nav
+    class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#faf9f6]/80 backdrop-blur-md rounded-t-[1.5rem] border-t border-[#e3e2e0]/30 shadow-[0_-4px_20px_rgba(0,0,0,0.04)]">
+    <a class="flex flex-col items-center justify-center text-slate-500" href="#">
+      <span class="material-symbols-outlined mb-1">home</span>
+      <span class="font-label font-medium text-[10px] uppercase tracking-widest">Accueil</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-slate-500" href="#">
+      <span class="material-symbols-outlined mb-1">storefront</span>
+      <span class="font-label font-medium text-[10px] uppercase tracking-widest">Marché</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-slate-500" href="#">
+      <span class="material-symbols-outlined mb-1">agriculture</span>
+      <span class="font-label font-medium text-[10px] uppercase tracking-widest">Services</span>
+    </a>
+    <a class="flex flex-col items-center justify-center bg-emerald-100 text-[#005232] rounded-2xl px-5 py-2 scale-90"
+      href="#">
+      <span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">person</span>
+      <span class="font-label font-medium text-[10px] uppercase tracking-widest">Compte</span>
+    </a>
+  </nav>
+</body>
+
+</html>
