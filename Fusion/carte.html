@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html class="light" lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>AgroPoulet - Carte Interactive des Éleveurs</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-error-container": "#93000a", "error-container": "#ffdad6",
+            "secondary-fixed-dim": "#b1c5ff", "on-background": "#1a1c1a",
+            "inverse-surface": "#2f312f", "on-tertiary": "#ffffff",
+            "secondary": "#2559bd", "surface-dim": "#dbdad7",
+            "primary-fixed-dim": "#80d8a6", "primary": "#005232",
+            "on-tertiary-container": "#ffd1a2", "secondary-fixed": "#dae2ff",
+            "on-surface-variant": "#3f4942", "on-primary": "#ffffff",
+            "on-primary-fixed": "#002111", "surface-tint": "#006d44",
+            "on-primary-fixed-variant": "#005232", "primary-container": "#006d44",
+            "surface-container-high": "#e9e8e5", "on-secondary-fixed": "#001946",
+            "inverse-on-surface": "#f1f1ee", "error": "#ba1a1a",
+            "inverse-primary": "#80d8a6", "on-secondary-fixed-variant": "#00419e",
+            "outline": "#6f7a71", "on-secondary-container": "#002f76",
+            "on-tertiary-fixed": "#2b1700", "tertiary-container": "#885300",
+            "secondary-container": "#6c98ff", "tertiary": "#683e00",
+            "surface-container-low": "#f4f3f1", "on-primary-container": "#93ecb8",
+            "surface-container": "#efeeeb", "surface-container-lowest": "#ffffff",
+            "background": "#faf9f6", "outline-variant": "#bec9bf",
+            "primary-fixed": "#9cf5c1", "tertiary-fixed": "#ffddba",
+            "on-error": "#ffffff", "surface-variant": "#e3e2e0",
+            "on-tertiary-fixed-variant": "#673d00", "on-secondary": "#ffffff",
+            "surface-bright": "#faf9f6", "tertiary-fixed-dim": "#ffb866",
+            "surface": "#faf9f6", "on-surface": "#1a1c1a",
+            "surface-container-highest": "#e3e2e0"
+          },
+          fontFamily: { "headline": ["Manrope"], "body": ["Inter"], "label": ["Inter"] },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    body { font-family: 'Inter', sans-serif; background-color: #faf9f6; color: #1a1c1a; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    /* Desktop map fills remaining viewport height */
+    .map-desktop { height: calc(100vh - 76px); }
+    /* Mobile map fills screen minus header + bottom nav */
+    .map-mobile { height: calc(100dvh - 68px - 80px); }
+  </style>
+</head>
+
+<body class="bg-background text-on-surface font-body selection:bg-primary/20 overflow-x-hidden">
+
+  <!-- SIDE DRAWER (mobile) -->
+  <div class="fixed inset-y-0 left-0 z-[60] flex flex-col p-6 h-full w-80 rounded-r-3xl bg-[#faf9f6] shadow-2xl -translate-x-full transition-all ease-in-out duration-300" id="side-drawer">
+    <div class="flex items-center gap-4 mb-8">
+      <div class="w-12 h-12 rounded-full bg-surface-container overflow-hidden ring-2 ring-emerald-900/10">
+        <img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxMzabEsUVO80cD4rY73GkOrl-YByZmJ6df0rb5ifjoTRiWIjuxD4i9At6770oxB9pzNYRvIz_6AyWp4FWTWWUqyLGq_qBkdOnTcZAkPbb2mHU4yamg85clKdZa84aUs2Ai7eR7VR7gaIHZhOD7cfr1f2g8iAdwMUlpozvbTFqAOe-rs7PnKurhuInSq7txRzNxci63VHEuEHSrwO4Th1T4X592ngupn9FrXzPX4PabAWuAtbEYTYd1XJkyTqKB5-0DQqEQT1sWGR6" />
+      </div>
+      <div class="font-['Manrope']">
+        <h3 class="font-bold text-[#005232]">AgroPoulet Membre</h3>
+        <p class="text-xs text-slate-500">Digital Agronomist • <span class="text-emerald-600 font-bold">Premium</span></p>
+      </div>
+      <button class="ml-auto text-slate-400" onclick="toggleDrawer()"><span class="material-symbols-outlined">close</span></button>
+    </div>
+    <nav class="flex flex-col gap-1">
+      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium" href="accueil.html"><span class="material-symbols-outlined">home</span><span>Accueil</span></a>
+      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium" href="apropos.html"><span class="material-symbols-outlined">info</span><span>A propos</span></a>
+      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium" href="marketplace.html"><span class="material-symbols-outlined">storefront</span><span>Marché</span></a>
+      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium" href="formation.html"><span class="material-symbols-outlined">school</span><span>Formations</span></a>
+      <a class="flex items-center gap-4 p-3 rounded-xl bg-emerald-50 text-emerald-900 border-l-4 border-emerald-900 font-['Manrope'] font-medium" href="#"><span class="material-symbols-outlined">map</span><span>Carte</span></a>
+      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium" href="compte.html"><span class="material-symbols-outlined">person</span><span>Compte</span></a>
+    </nav>
+  </div>
+  <div class="fixed inset-0 bg-black/50 z-[55] hidden transition-opacity duration-300" id="drawer-overlay" onclick="toggleDrawer()"></div>
+
+  <!-- HEADER -->
+  <header class="bg-[#faf9f6]/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+    <div class="flex justify-between items-center w-full px-4 md:px-6 py-4 max-w-7xl mx-auto">
+      <div class="flex items-center gap-3 md:gap-8">
+        <button class="md:hidden active:scale-95 duration-200 text-emerald-900" onclick="toggleDrawer()">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <span class="text-xl md:text-2xl font-black text-[#005232] tracking-tighter font-headline">AgroPoulet</span>
+        <nav class="hidden md:flex items-center gap-8">
+          <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="accueil.html">Accueil</a>
+          <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="apropos.html">A propos</a>
+          <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="marketplace.html">Marché</a>
+          <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="formation.html">Formations</a>
+          <a class="text-[#005232] font-bold border-b-2 border-[#005232] font-headline tracking-tight text-lg" href="#">Carte</a>
+          <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="contact.html">Contact</a>
+          <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="#">Connexion</a>
+        </nav>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-[#005232]">notifications</span>
+        <div class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-primary-container overflow-hidden ring-2 ring-primary/10">
+          <img alt="Profil" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIANVAP3wdW-9VGVi2s-9gJe2G6rywLr2Wg7u261xDPk95ajcUZvOnyHbGNmTgGhVV-NpaDBLUgzJZR4fVkVGVUU34cFAD_ic3hrW0iDM1WOuDgNfrFOcS1GQzibz19JhhQ0Rb0hgPT7sGOjQ4rAZbdQ2LAdcXa1yRB9ENj1_EpSSIEzgqaB9yu-L6vTXotIIErAeq98_DYlUifevmSHUP28ZRD8c55Ib_p353lv6i-N1_IuZv1R2_sthmBudFNJwUkCxraws149sH" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== DESKTOP LAYOUT ===== -->
+  <div class="hidden md:flex map-desktop overflow-hidden">
+
+    <!-- Sidebar -->
+    <aside class="w-[400px] flex-shrink-0 bg-surface-container-lowest z-20 shadow-xl flex flex-col border-r border-outline-variant/15">
+      <div class="p-6 space-y-5">
+        <div class="space-y-1">
+          <h1 class="font-headline font-bold text-2xl tracking-tight text-primary">Trouver un Éleveur</h1>
+          <p class="text-on-surface-variant text-sm">Explorez les fermes avicoles certifiées autour de Touba.</p>
+        </div>
+        <!-- Search -->
+        <div class="relative">
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+          <input class="w-full pl-10 pr-4 py-3 bg-surface-container-highest border-none rounded-xl focus:ring-2 focus:ring-primary text-sm" placeholder="Rechercher une ferme..." type="text" />
+        </div>
+        <!-- Filters -->
+        <div class="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
+          <button class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-full text-xs font-semibold whitespace-nowrap">
+            <span class="material-symbols-outlined text-sm">grid_view</span> Tout
+          </button>
+          <button class="flex items-center gap-2 px-4 py-2 bg-surface-container text-on-surface-variant rounded-full text-xs font-semibold whitespace-nowrap hover:bg-surface-container-high transition-colors">
+            <span class="material-symbols-outlined text-sm">egg</span> Œufs
+          </button>
+          <button class="flex items-center gap-2 px-4 py-2 bg-surface-container text-on-surface-variant rounded-full text-xs font-semibold whitespace-nowrap hover:bg-surface-container-high transition-colors">
+            <span class="material-symbols-outlined text-sm">restaurant</span> Chair
+          </button>
+          <button class="flex items-center gap-2 px-4 py-2 bg-surface-container text-on-surface-variant rounded-full text-xs font-semibold whitespace-nowrap hover:bg-surface-container-high transition-colors">
+            <span class="material-symbols-outlined text-sm">vaccines</span> Poussins
+          </button>
+        </div>
+      </div>
+
+      <!-- Farm list -->
+      <div class="flex-1 overflow-y-auto px-4 pb-6 space-y-4">
+        <!-- Card 1 -->
+        <div class="p-4 bg-surface-container-low rounded-xl hover:bg-surface-container transition-all cursor-pointer group border border-transparent hover:border-primary/20">
+          <div class="flex gap-4">
+            <div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+              <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6SHdnYfFIXAEn_YQr5aaLvX3S66hDe9u7ZrYLDd3qfpUVpa3v7OR1O3q_hUUXR-DRbgP5ZSLmmaeUuzH3C-GoKSyIngTyz0vRE6ZOiXrW2h9MU2-huAkv4uu3zQhLKfazUKhX7Qbi4rrUgeLpsFyHuRmPUdvspG9-3BDOnd3cDIB26N1Y7xFqB1PiWIscUiXvQ2zo3Wkhqtv7tdCPlj3TRRM9X52LYqiLuSvFoXvAvndYMLOPbqtNhSlQjrkaVJeQVRdqJwYYBV-X" alt="Ferme Al-Amine" />
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex justify-between items-start">
+                <span class="px-2 py-0.5 bg-primary-fixed text-on-primary-fixed text-[10px] font-bold rounded-sm uppercase tracking-wider mb-1 inline-block">Premium</span>
+                <span class="text-xs text-primary font-bold">4.8km</span>
+              </div>
+              <h3 class="font-headline font-bold text-on-surface truncate group-hover:text-primary transition-colors">Ferme Al-Amine</h3>
+              <p class="text-xs text-on-surface-variant flex items-center gap-1">
+                <span class="material-symbols-outlined text-[14px]">location_on</span> Touba, Quartier Darou Marnane
+              </p>
+              <div class="mt-2 flex items-center justify-between">
+                <span class="text-xs font-semibold text-secondary">1,200 Poussins</span>
+                <button class="text-primary material-symbols-outlined hover:scale-110 transition-transform">arrow_forward</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="p-4 bg-surface-container-low rounded-xl hover:bg-surface-container transition-all cursor-pointer group border border-transparent hover:border-primary/20">
+          <div class="flex gap-4">
+            <div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+              <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6fDnZRdqLZaPSbsMiZJ7F7NvES2dxt97mrDKD4lgz3v6mqm0gd8PuVajQ8OYIS1pSl-jGdmofLYOXQDhJutWD7ZK70JqOGGDkK9QfMhvPMtKoPzWTj4vgSegtczhWmwZx9QhQPW6mmfVjQCe-F5otHnPm4rfD62wYeUhQWoZfo8E_b3Mutr8UQBqHkG8NDyNAqVKTBAOjkWb0pftQJoYAnPFbU5vSpA0jmCjLF7i0co3VYv-lM05bKK178Aa0CyX0ZT0EvOXca0dy" alt="Ferme El Hadj" />
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex justify-between items-start">
+                <span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded-sm uppercase tracking-wider mb-1 inline-block">Vérifié</span>
+                <span class="text-xs text-primary font-bold">4.8km</span>
+              </div>
+              <h3 class="font-headline font-bold text-on-surface truncate group-hover:text-primary transition-colors">Ferme Avicole El Hadj</h3>
+              <p class="text-xs text-on-surface-variant flex items-center gap-1">
+                <span class="material-symbols-outlined text-[14px]">location_on</span> Mbacké, Touba
+              </p>
+              <div class="mt-2 flex items-center justify-between">
+                <span class="text-xs font-semibold text-secondary">2,500 Poulets</span>
+                <button class="text-primary material-symbols-outlined hover:scale-110 transition-transform">arrow_forward</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="p-4 bg-surface-container-low rounded-xl hover:bg-surface-container transition-all cursor-pointer group border border-transparent hover:border-primary/20">
+          <div class="flex gap-4">
+            <div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+              <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBydsfdP_GBXL0esYXb4FeLVe79az34GTEtia5ZtgPJr-NilWL9572jH_Xw6jeobrtPE0LrJlW2VZLbf3AhH-Kl7qxRNKNuddxf9oDsEbwNGfEtuGG9zHOqkDz8JKB6V-QPfePCNtOeyVk9u8PwaFX7Rosbajc7zp3eon27MkCFcS7rJZIdBgQ93fNh8eZE3kLlb-sooGWgNF5xTOezf-VqhLFp1L6t6PCq63_i5X0ymDeQ9EPumBGVGEKHmPSt8PC9MZC5ij0eO-FX" alt="Poulet Royal" />
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex justify-between items-start">
+                <span class="px-2 py-0.5 bg-tertiary-container text-on-tertiary-container text-[10px] font-bold rounded-sm uppercase tracking-wider mb-1 inline-block">Nouveau</span>
+                <span class="text-xs text-primary font-bold">12.2km</span>
+              </div>
+              <h3 class="font-headline font-bold text-on-surface truncate group-hover:text-primary transition-colors">Poulet Royal Touba</h3>
+              <p class="text-xs text-on-surface-variant flex items-center gap-1">
+                <span class="material-symbols-outlined text-[14px]">location_on</span> Touba Alieu
+              </p>
+              <div class="mt-2 flex items-center justify-between">
+                <span class="text-xs font-semibold text-secondary">800 Poulets</span>
+                <button class="text-primary material-symbols-outlined hover:scale-110 transition-transform">arrow_forward</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="p-4 bg-surface-container-low rounded-xl hover:bg-surface-container transition-all cursor-pointer group border border-transparent hover:border-primary/20">
+          <div class="flex gap-4">
+            <div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+              <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTn5dC0-iLj8bOXWerVeG2i8Kj6fxYOMD9CVbD6GtmsBdIo8Vh431jAXuW38wNhBYQ6kd6zIVUcVQXjaShcPpcSSK3rv7omqNPwVoZwJ5w0wic46_AQQpGl7uzIXiLhzTsTuHMX82e0gFjaNOatT0KDLz6EPQL-M_cjgMnlJD0jtcRlFbeM6YwGLOYs2HLh-rytS6Ax1yEQnj8ljMhWVxk9HlpzHURXXtkh4qal08Ue2druuGNflLewQQOc-V6Ish3RJMUnHi3l74Q" alt="L'Agronome Vert" />
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex justify-between items-start">
+                <span class="px-2 py-0.5 bg-primary-container text-on-primary-container text-[10px] font-bold rounded-sm uppercase tracking-wider mb-1 inline-block">Bio</span>
+                <span class="text-xs text-primary font-bold">15.5km</span>
+              </div>
+              <h3 class="font-headline font-bold text-on-surface truncate group-hover:text-primary transition-colors">L'Agronome Vert</h3>
+              <p class="text-xs text-on-surface-variant flex items-center gap-1">
+                <span class="material-symbols-outlined text-[14px]">location_on</span> Darou Mousty
+              </p>
+              <div class="mt-2 flex items-center justify-between">
+                <span class="text-xs font-semibold text-secondary">1,200 Poulets</span>
+                <button class="text-primary material-symbols-outlined hover:scale-110 transition-transform">arrow_forward</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Map -->
+    <section class="flex-1 relative bg-surface-container-high overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img class="w-full h-full object-cover opacity-60 grayscale-[0.3]"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0MJXUDlTgSHtTURGqNpodWxR3ikJgcosBQI-6ZVb7etUJeypc_7NtDYy8yxPCDRjTtOWDAoICb_XxM6wV94UWDIbHp_DCtDME2j31WFyXC1UYar26StmZqbSmLOLN7svxty2d-96XTuor_c2c-0-AwCQ1OxAN9p-lVio9F8J1u0teLyP-VVz3H-_BJ8hu98e0l5UppVFU9HfqnUpwLgFvaZj6Du8kslzORie271PA1FbplKLi70T56OYhVn5xStcQHK0DW6Ohn7jf" alt="Carte Touba" />
+      </div>
+      <!-- Pins -->
+      <div class="absolute inset-0 z-10 pointer-events-none">
+        <div class="absolute top-1/4 left-1/3 pointer-events-auto">
+          <div class="relative group cursor-pointer">
+            <div class="bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-all border-2 border-surface ring-4 ring-primary/20">
+              <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1;">agriculture</span>
+            </div>
+            <div class="absolute -top-12 left-1/2 -translate-x-1/2 bg-surface-container-lowest px-3 py-1.5 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+              <span class="text-xs font-bold text-primary">Ferme Al-Amine</span>
+            </div>
+          </div>
+        </div>
+        <div class="absolute top-1/2 left-2/3 pointer-events-auto">
+          <div class="relative group cursor-pointer">
+            <div class="bg-secondary text-on-secondary w-10 h-10 rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-all border-2 border-surface">
+              <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1;">storefront</span>
+            </div>
+            <div class="absolute -top-12 left-1/2 -translate-x-1/2 bg-surface-container-lowest px-3 py-1.5 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+              <span class="text-xs font-bold text-secondary">Poulet Royal</span>
+            </div>
+          </div>
+        </div>
+        <div class="absolute bottom-1/3 left-1/2 pointer-events-auto">
+          <div class="relative group cursor-pointer">
+            <div class="bg-primary-container text-on-primary-container w-10 h-10 rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-all border-2 border-surface">
+              <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1;">eco</span>
+            </div>
+            <div class="absolute -top-12 left-1/2 -translate-x-1/2 bg-surface-container-lowest px-3 py-1.5 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+              <span class="text-xs font-bold text-primary">L'Agronome Vert</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Zoom controls -->
+      <div class="absolute bottom-10 right-10 flex flex-col gap-3 z-30">
+        <button class="w-12 h-12 bg-surface-container-lowest text-primary rounded-xl shadow-xl flex items-center justify-center hover:bg-surface-container transition-colors">
+          <span class="material-symbols-outlined">add</span>
+        </button>
+        <button class="w-12 h-12 bg-surface-container-lowest text-primary rounded-xl shadow-xl flex items-center justify-center hover:bg-surface-container transition-colors">
+          <span class="material-symbols-outlined">remove</span>
+        </button>
+        <button class="w-12 h-12 bg-primary text-on-primary rounded-xl shadow-xl flex items-center justify-center hover:opacity-90 transition-colors">
+          <span class="material-symbols-outlined">my_location</span>
+        </button>
+      </div>
+      <!-- Legend -->
+      <div class="absolute top-10 left-10 z-30 bg-surface-container-lowest/80 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white/20">
+        <h4 class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">Légende</h4>
+        <div class="space-y-3">
+          <div class="flex items-center gap-3"><div class="w-3 h-3 rounded-full bg-primary"></div><span class="text-xs font-medium">Grandes Exploitations</span></div>
+          <div class="flex items-center gap-3"><div class="w-3 h-3 rounded-full bg-secondary"></div><span class="text-xs font-medium">Marchés Locaux</span></div>
+          <div class="flex items-center gap-3"><div class="w-3 h-3 rounded-full bg-primary-container"></div><span class="text-xs font-medium">Fermes Bio</span></div>
+          <div class="flex items-center gap-3"><div class="w-3 h-3 rounded-full bg-tertiary"></div><span class="text-xs font-medium">Services Vétérinaires</span></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== MOBILE LAYOUT ===== -->
+  <div class="md:hidden relative">
+    <!-- Map takes full height -->
+    <div class="map-mobile relative w-full overflow-hidden bg-surface-container-low">
+      <img class="w-full h-full object-cover opacity-60 mix-blend-multiply"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNp1wK1gwvRe2pvnhws3Ud5ConESSm5ICXsGK6uWQjgbfHWlUNFiEM8Axkcz1TPbgXjLYvcDy-NGYQkJ0mZ4nP_8wRya8MmQItBAPkgv6cnOC8NcDNSmYXHe2HsmHJCqQQ-7p7KSSiPtImZnwnC5Kb6TJkHP-gsU-k53lf-K4ZUhZd6EgNI0fsAvqvtzXcF-MgLsHaYfqKgXUq8FiCyQJG4Yy3yqsR3oddt-BoMeO0NOd1xcnF9M4TMXwz0s_Zkek6HHr8ZHejUJiS" alt="Carte Touba" />
+      <div class="absolute inset-0 bg-primary/5 pointer-events-none"></div>
+
+      <!-- Search & Filters floating -->
+      <div class="absolute top-4 left-0 right-0 z-40 px-4 space-y-3">
+        <div class="bg-surface-container-lowest/90 backdrop-blur-xl rounded-full shadow-lg flex items-center px-4 py-2 border border-outline-variant/15">
+          <span class="material-symbols-outlined text-outline">search</span>
+          <input class="bg-transparent border-none focus:ring-0 text-sm w-full py-1 ml-2 font-medium" placeholder="Rechercher une zone à Touba..." type="text" />
+          <span class="material-symbols-outlined text-primary">my_location</span>
+        </div>
+        <div class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
+          <button class="flex-none bg-primary text-on-primary px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest flex items-center gap-1.5 shadow-md">
+            <span class="material-symbols-outlined text-[16px]">grid_view</span> Tout
+          </button>
+          <button class="flex-none bg-surface-container-lowest text-on-surface px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest flex items-center gap-1.5 shadow-sm border border-outline-variant/10">
+            <span class="material-symbols-outlined text-[16px]">egg</span> Œufs
+          </button>
+          <button class="flex-none bg-surface-container-lowest text-on-surface px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest flex items-center gap-1.5 shadow-sm border border-outline-variant/10">
+            <span class="material-symbols-outlined text-[16px]">nest_eco</span> Chair
+          </button>
+          <button class="flex-none bg-surface-container-lowest text-on-surface px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest flex items-center gap-1.5 shadow-sm border border-outline-variant/10">
+            <span class="material-symbols-outlined text-[16px]">vaccines</span> Poussins
+          </button>
+        </div>
+      </div>
+
+      <!-- Pins -->
+      <div class="absolute top-1/3 left-1/4 group cursor-pointer z-30">
+        <div class="flex flex-col items-center">
+          <div class="bg-primary text-on-primary p-2 rounded-full shadow-2xl ring-4 ring-primary/20 active:scale-90 transition-transform">
+            <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">agriculture</span>
+          </div>
+          <div class="mt-1.5 bg-surface-container-lowest px-2.5 py-1 rounded-lg shadow-md border border-outline-variant/10">
+            <p class="text-[10px] font-bold text-primary">FERME AL-AMINE</p>
+          </div>
+        </div>
+      </div>
+      <div class="absolute top-1/2 right-1/3 cursor-pointer z-30">
+        <div class="bg-secondary text-on-primary p-2 rounded-full shadow-lg active:scale-90 transition-transform">
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">egg</span>
+        </div>
+      </div>
+      <div class="absolute bottom-1/4 left-1/2 cursor-pointer z-30">
+        <div class="bg-primary-container text-on-primary-container p-2 rounded-full shadow-lg active:scale-90 transition-transform">
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">eco</span>
+        </div>
+      </div>
+
+      <!-- Bottom Quick View Card -->
+      <div class="absolute bottom-4 left-4 right-4 z-40">
+        <div class="bg-surface-container-lowest/95 backdrop-blur-xl rounded-[2rem] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.1)] flex flex-col gap-4 border border-outline-variant/10">
+          <div class="flex items-start justify-between">
+            <div class="flex gap-4">
+              <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-inner flex-shrink-0">
+                <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6SHdnYfFIXAEn_YQr5aaLvX3S66hDe9u7ZrYLDd3qfpUVpa3v7OR1O3q_hUUXR-DRbgP5ZSLmmaeUuzH3C-GoKSyIngTyz0vRE6ZOiXrW2h9MU2-huAkv4uu3zQhLKfazUKhX7Qbi4rrUgeLpsFyHuRmPUdvspG9-3BDOnd3cDIB26N1Y7xFqB1PiWIscUiXvQ2zo3Wkhqtv7tdCPlj3TRRM9X52LYqiLuSvFoXvAvndYMLOPbqtNhSlQjrkaVJeQVRdqJwYYBV-X" alt="Ferme Al-Amine" />
+              </div>
+              <div>
+                <h3 class="font-headline font-bold text-lg text-primary tracking-tight">Ferme Al-Amine</h3>
+                <p class="text-xs font-medium text-outline flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm">location_on</span> Touba, Darou Marnane
+                </p>
+                <div class="mt-1.5 flex gap-1">
+                  <span class="bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded text-[10px] font-bold uppercase">Premium</span>
+                  <span class="bg-secondary-fixed text-on-secondary-fixed px-2 py-0.5 rounded text-[10px] font-bold uppercase">Certifié</span>
+                </div>
+              </div>
+            </div>
+            <button class="bg-surface-container w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant flex-shrink-0">
+              <span class="material-symbols-outlined text-sm">favorite</span>
+            </button>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-surface-container-low rounded-xl p-3">
+              <span class="text-[10px] text-outline uppercase font-bold tracking-widest block">Stock</span>
+              <span class="text-primary font-bold">1,200 Poussins</span>
+            </div>
+            <div class="bg-surface-container-low rounded-xl p-3">
+              <span class="text-[10px] text-outline uppercase font-bold tracking-widest block">Type</span>
+              <span class="text-on-surface font-bold">Lohmann Brown</span>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <button class="flex-1 bg-primary text-on-primary py-3 rounded-full font-bold text-sm tracking-wide shadow-md active:scale-95 transition-transform">
+              Contacter l'éleveur
+            </button>
+            <button class="w-12 bg-surface-container-highest flex items-center justify-center rounded-full text-primary active:scale-95 transition-transform">
+              <span class="material-symbols-outlined">directions</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER (desktop only — on mobile the map is full screen) -->
+  <footer class="hidden md:block bg-[#efeeeb] w-full rounded-t-3xl mt-0 relative z-40">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-8 py-12 max-w-7xl mx-auto">
+      <div class="space-y-4">
+        <span class="font-['Manrope'] font-black text-emerald-900 text-2xl tracking-tighter block">AgroPoulet</span>
+        <p class="font-['Inter'] text-sm leading-relaxed text-slate-600">La première plateforme digitale dédiée à l'aviculture au Sénégal. Connectez-vous, produisez et vendez mieux.</p>
+      </div>
+      <div class="grid grid-cols-2 gap-8">
+        <div class="space-y-4">
+          <h4 class="font-headline font-bold text-primary">Plateforme</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a class="text-slate-600 hover:text-emerald-500 transition-colors" href="marketplace.html">Marché</a></li>
+            <li><a class="text-slate-600 hover:text-emerald-500 transition-colors" href="#">Carte Interactive</a></li>
+            <li><a class="text-slate-600 hover:text-emerald-500 transition-colors" href="#">Guide Élevage</a></li>
+          </ul>
+        </div>
+        <div class="space-y-4">
+          <h4 class="font-headline font-bold text-primary">Compagnie</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a class="text-slate-600 hover:text-emerald-500 transition-colors" href="apropos.html">À propos</a></li>
+            <li><a class="text-slate-600 hover:text-emerald-500 transition-colors" href="contact.html">Contact</a></li>
+            <li><a class="text-slate-600 hover:text-emerald-500 transition-colors" href="#">Confidentialité</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <h4 class="font-headline font-bold text-primary">Newsletter</h4>
+        <div class="flex gap-2">
+          <input class="flex-1 bg-surface-container border-none rounded-full px-4 py-2 text-sm focus:ring-2 focus:ring-primary" placeholder="Votre email" type="email" />
+          <button class="bg-primary text-on-primary px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest hover:opacity-90 transition-opacity">S'inscrire</button>
+        </div>
+        <p class="text-[10px] text-slate-500 uppercase tracking-widest">© 2024 AgroPoulet Sénégal. Propulsé par Le Digital Agronomiste.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp FAB -->
+  <a class="hidden md:flex fixed bottom-10 right-10 z-[100] w-16 h-16 bg-[#25D366] text-white rounded-full items-center justify-center shadow-2xl hover:scale-110 transition-all duration-300" href="https://wa.me/221000000000" target="_blank">
+    <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793 0-.852.448-1.271.607-1.445.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.088.275.073.376-.043.101-.116.433-.506.548-.68.116-.174.231-.145.39-.087.159.058 1.011.477 1.184.564.173.087.289.129.332.202.043.073.043.419-.101.824zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.176L2 22l4.957-1.3c1.473.845 3.177 1.3 5.043 1.3 5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+  </a>
+  <a class="md:hidden fixed bottom-24 right-5 z-[60] bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl active:scale-90 transition-transform" href="https://wa.me/221000000000">
+    <span class="material-symbols-outlined text-2xl">chat</span>
+  </a>
+
+  <!-- BOTTOM NAV (mobile only) -->
+  <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 backdrop-blur-lg rounded-t-[2.5rem] border-t border-slate-100 shadow-[0_-10px_40px_rgba(0,109,68,0.08)]">
+    <a class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 hover:text-emerald-700 active:scale-90 transition-transform duration-150" href="accueil.html">
+      <span class="material-symbols-outlined">home</span>
+      <span class="font-['Inter'] text-[10px] font-medium uppercase tracking-widest mt-1">Accueil</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 hover:text-emerald-700 active:scale-90 transition-transform duration-150" href="marketplace.html">
+      <span class="material-symbols-outlined">storefront</span>
+      <span class="font-['Inter'] text-[10px] font-medium uppercase tracking-widest mt-1">Marché</span>
+    </a>
+    <a class="flex flex-col items-center justify-center bg-emerald-100 text-emerald-900 rounded-2xl px-5 py-2 active:scale-90 transition-transform duration-150" href="#">
+      <span class="material-symbols-outlined">map</span>
+      <span class="font-['Inter'] text-[10px] font-medium uppercase tracking-widest mt-1">Carte</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 hover:text-emerald-700 active:scale-90 transition-transform duration-150" href="contact.html">
+      <span class="material-symbols-outlined">call</span>
+      <span class="font-['Inter'] text-[10px] font-medium uppercase tracking-widest mt-1">Contact</span>
+    </a>
+    <button class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 hover:text-emerald-700 active:scale-90 transition-transform duration-150" onclick="toggleDrawer()">
+      <span class="material-symbols-outlined">more_horiz</span>
+      <span class="font-['Inter'] text-[10px] font-medium uppercase tracking-widest mt-1">Plus</span>
+    </button>
+  </nav>
+
+  <script>
+    function toggleDrawer() {
+      const drawer = document.getElementById('side-drawer');
+      const overlay = document.getElementById('drawer-overlay');
+      const isHidden = drawer.classList.contains('-translate-x-full');
+      if (isHidden) {
+        drawer.classList.remove('-translate-x-full');
+        overlay.classList.remove('hidden');
+        setTimeout(() => overlay.classList.add('opacity-100'), 10);
+      } else {
+        drawer.classList.add('-translate-x-full');
+        overlay.classList.remove('opacity-100');
+        setTimeout(() => overlay.classList.add('hidden'), 300);
+      }
+    }
+  </script>
+</body>
+</html>
