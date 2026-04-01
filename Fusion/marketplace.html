@@ -6,8 +6,11 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>AgroPoulet - Marché Avicole</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
   <script id="tailwind-config">
     tailwind.config = {
       darkMode: "class",
@@ -46,62 +49,137 @@
     }
   </script>
   <style>
-    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-    body { font-family: 'Inter', sans-serif; background-color: #faf9f6; color: #1a1c1a; }
-    h1, h2, h3, h4, h5 { font-family: 'Manrope', sans-serif; }
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    .editorial-shadow { box-shadow: 0 12px 40px rgba(26, 28, 26, 0.06); }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #faf9f6;
+      color: #1a1c1a;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .editorial-shadow {
+      box-shadow: 0 12px 40px rgba(26, 28, 26, 0.06);
+    }
   </style>
 </head>
 
-<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed overflow-x-hidden">
+<body
+  class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed overflow-x-hidden">
 
-  <!-- SIDE DRAWER (mobile) -->
-  <div class="fixed inset-y-0 left-0 z-[60] flex flex-col p-6 h-full w-80 rounded-r-3xl bg-[#faf9f6] shadow-2xl -translate-x-full transition-all ease-in-out duration-300" id="side-drawer">
+  <!-- ===== SIDE DRAWER (mobile) ===== -->
+  <div
+    class="fixed inset-y-0 left-0 z-[60] flex flex-col p-6 h-full w-80 rounded-r-3xl bg-[#faf9f6] dark:bg-[#1a1c1a] shadow-2xl -translate-x-full transition-all ease-in-out duration-300"
+    id="side-drawer">
     <div class="flex items-center gap-4 mb-8">
       <div class="w-12 h-12 rounded-full bg-surface-container overflow-hidden ring-2 ring-emerald-900/10">
-        <img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxMzabEsUVO80cD4rY73GkOrl-YByZmJ6df0rb5ifjoTRiWIjuxD4i9At6770oxB9pzNYRvIz_6AyWp4FWTWWUqyLGq_qBkdOnTcZAkPbb2mHU4yamg85clKdZa84aUs2Ai7eR7VR7gaIHZhOD7cfr1f2g8iAdwMUlpozvbTFqAOe-rs7PnKurhuInSq7txRzNxci63VHEuEHSrwO4Th1T4X592ngupn9FrXzPX4PabAWuAtbEYTYd1XJkyTqKB5-0DQqEQT1sWGR6" />
+        <img alt="User Profile" class="w-full h-full object-cover"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxMzabEsUVO80cD4rY73GkOrl-YByZmJ6df0rb5ifjoTRiWIjuxD4i9At6770oxB9pzNYRvIz_6AyWp4FWTWWUqyLGq_qBkdOnTcZAkPbb2mHU4yamg85clKdZa84aUs2Ai7eR7VR7gaIHZhOD7cfr1f2g8iAdwMUlpozvbTFqAOe-rs7PnKurhuInSq7txRzNxci63VHEuEHSrwO4Th1T4X592ngupn9FrXzPX4PabAWuAtbEYTYd1XJkyTqKB5-0DQqEQT1sWGR6" />
       </div>
       <div class="font-['Manrope']">
         <h3 class="font-bold text-[#005232]">AgroPoulet Membre</h3>
-        <p class="text-xs text-slate-500">Digital Agronomist • <span class="text-emerald-600 font-bold">Premium</span></p>
+        <p class="text-xs text-slate-500">Digital Agronomist • <span class="text-emerald-600 font-bold">Premium</span>
+        </p>
       </div>
-      <button class="ml-auto text-slate-400" onclick="toggleDrawer()"><span class="material-symbols-outlined">close</span></button>
+      <button class="ml-auto text-slate-400" onclick="toggleDrawer()">
+        <span class="material-symbols-outlined">close</span>
+      </button>
     </div>
     <nav class="flex flex-col gap-1">
-      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium" href="accueil.html"><span class="material-symbols-outlined">home</span><span>Accueil</span></a>
-      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium" href="apropos.html"><span class="material-symbols-outlined">info</span><span>A propos</span></a>
-      <a class="flex items-center gap-4 p-3 rounded-xl bg-emerald-50 text-emerald-900 border-l-4 border-emerald-900 font-['Manrope'] font-medium" href="#"><span class="material-symbols-outlined">storefront</span><span>Marché</span></a>
-      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium" href="formation.html"><span class="material-symbols-outlined">school</span><span>Formations</span></a>
-      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium" href="carte.html"><span class="material-symbols-outlined">map</span><span>Carte</span></a>
-      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium" href="compte.html"><span class="material-symbols-outlined">person</span><span>Compte</span></a>
+      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium"
+        href="accueil.html">
+        <span class="material-symbols-outlined">home</span><span>Accueil</span>
+      </a>
+      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium"
+        href="apropos.html">
+        <span class="material-symbols-outlined">info</span><span>A propos</span>
+      </a>
+      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium"
+        href="finance.html">
+        <span class="material-symbols-outlined">payments</span><span>Financement</span>
+      </a>
+       <a class="flex items-center gap-4 p-3 rounded-xl bg-emerald-50 text-emerald-900 border-l-4 border-emerald-900 font-['Manrope'] font-medium"
+        href="#">
+        <span class="material-symbols-outlined">storefront</span><span>Marché</span>
+      </a>
+      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium"
+        href="formation.html">
+        <span class="material-symbols-outlined">school</span><span>Formations</span>
+      </a>
+      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium"
+        href="carte.html">
+        <span class="material-symbols-outlined">map</span><span>Carte</span>
+      </a>
+      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium"
+        href="contact.html">
+        <span class="material-symbols-outlined">call</span><span>Contact</span>
+      </a>
+      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium"
+        href="compte.html">
+        <span class="material-symbols-outlined">person</span><span>Compte</span>
+      </a>
     </nav>
   </div>
-  <div class="fixed inset-0 bg-black/50 z-[55] hidden transition-opacity duration-300" id="drawer-overlay" onclick="toggleDrawer()"></div>
+  <div class="fixed inset-0 bg-black/50 z-[55] hidden transition-opacity duration-300" id="drawer-overlay"
+    onclick="toggleDrawer()"></div>
 
-  <!-- HEADER -->
-  <header class="bg-[#faf9f6]/80 backdrop-blur-md sticky top-0 z-50 shadow-[0_12px_40px_rgba(26,28,26,0.06)]">
+  <!-- ===== HEADER ===== -->
+  <header class="bg-[#faf9f6]/80 backdrop-blur-md sticky top-0 z-50 shadow-sm shadow-[0_12px_40px_rgba(26,28,26,0.06)]">
     <div class="flex justify-between items-center w-full px-4 md:px-6 py-4 max-w-7xl mx-auto">
-      <div class="flex items-center gap-3 md:gap-8">
+
+      <!-- Mobile: hamburger + logo -->
+      <div class="flex items-center gap-3">
         <button class="md:hidden active:scale-95 duration-200 text-emerald-900" onclick="toggleDrawer()">
           <span class="material-symbols-outlined">menu</span>
         </button>
-        <span class="text-xl md:text-2xl font-black text-[#005232] tracking-tighter font-headline">AgroPoulet</span>
-        <nav class="hidden md:flex items-center gap-8">
-          <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="accueil.html">Accueil</a>
-          <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="apropos.html">A propos</a>
-          <a class="text-[#005232] font-bold border-b-2 border-[#005232] font-headline tracking-tight text-lg" href="#">Marché</a>
-          <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="formation.html">Formations</a>
-          <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="carte.html">Carte</a>
-          <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="contact.html">Contact</a>
-          <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="#">Connexion</a>
-        </nav>
+        <div class="text-xl md:text-2xl font-black text-[#005232] tracking-tighter font-headline">AgroPoulet</div>
       </div>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+          href="accueil.html">Accueil</a>
+        <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+          href="apropos.html">A propos</a>
+        <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+          href="finance.html">Financement</a>
+        <a class="text-[#005232] font-bold border-b-2 border-[#005232] font-headline tracking-tight text-lg hover:opacity-100 transition-all"
+          href="#">Marché</a>
+        <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+          href="formation.html">Formations</a>
+        <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+          href="carte.html">Carte</a>
+        <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+          href="contact.html">Contact</a>
+        <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all"
+          href="#">Connexion</a>
+      </nav>
+
+      <!-- Right icons -->
       <div class="flex items-center gap-3">
-        <button class="p-2 text-[#005232]"><span class="material-symbols-outlined">notifications</span></button>
-        <div class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-surface-container-highest overflow-hidden border-2 border-primary/20">
-          <img alt="Profil" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvKuor_Vw3sRaKvPrQlINigLQJxENexHqbUovQJQCFwauGVgkwPVAyHkxGmID_jr-q1RTCsjdXfAUInXfLQ9ZO5cNMnqBEK1fSsKixVvfIVVPN0QCrT7vKaTEjFViwGiPBq205IWJ9W6JIiablPBmS_Mt5beHCVM_Orgz2-7XPy3Q1N_uf45ym-tFa8Kbhje98yCxrNI3JOwNOL0rXTpaUT109JNAz3UTawsmHaEn6MDrkDN1Ex_lQE5SxIyPVGTd8Q5BjA3ifHXsh" />
+        <span class="material-symbols-outlined text-[#005232]">notifications</span>
+        <div
+          class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden">
+          <img alt="Profil" class="w-full h-full object-cover"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFRE8Sp2DrPyQCNyh8agu6q9tDgPZPW4qI70n3fbM7JlASKVBHAqP-9PdvzxMViVkc7V4qafSqCv3ZlJNGEPYdkrLS1msMT11_u1h9UJlfXc2EJgUrb-G-3cKU5Xpks8lRK-ZV00HYye947vAWY02v_cdTP6RFvKtRQyrr4fS7A8AWGRKhklyEziy6b5GqwTU7xDq4gl99PkoWXw_3iEF0b8OtsH2bjn71EAGO5OMc0genDgsVTp-EMzzvdRuxER2yVxqKDXOOq9DD" />
         </div>
       </div>
     </div>
@@ -119,30 +197,40 @@
               <span class="material-symbols-outlined text-primary">filter_list</span> Filtres Avancés
             </h3>
             <div class="relative mb-8">
-              <input class="w-full pl-10 pr-4 py-3 bg-surface-container-highest border-none rounded-2xl text-sm focus:ring-2 focus:ring-primary" placeholder="Rechercher..." type="text" />
-              <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+              <input
+                class="w-full pl-10 pr-4 py-3 bg-surface-container-highest border-none rounded-2xl text-sm focus:ring-2 focus:ring-primary"
+                placeholder="Rechercher..." type="text" />
+              <span
+                class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
             </div>
             <div class="space-y-8">
               <div class="space-y-4">
                 <label class="text-xs font-bold uppercase tracking-widest text-outline">Type de produit</label>
                 <div class="flex flex-col gap-3">
                   <label class="flex items-center gap-3 cursor-pointer group">
-                    <input checked class="rounded border-outline-variant text-primary focus:ring-primary w-5 h-5" type="checkbox" />
-                    <span class="text-on-surface-variant group-hover:text-primary transition-colors">Volaille Vivante</span>
+                    <input checked class="rounded border-outline-variant text-primary focus:ring-primary w-5 h-5"
+                      type="checkbox" />
+                    <span class="text-on-surface-variant group-hover:text-primary transition-colors">Volaille
+                      Vivante</span>
                   </label>
                   <label class="flex items-center gap-3 cursor-pointer group">
-                    <input class="rounded border-outline-variant text-primary focus:ring-primary w-5 h-5" type="checkbox" />
-                    <span class="text-on-surface-variant group-hover:text-primary transition-colors">Matériel &amp; Équipement</span>
+                    <input class="rounded border-outline-variant text-primary focus:ring-primary w-5 h-5"
+                      type="checkbox" />
+                    <span class="text-on-surface-variant group-hover:text-primary transition-colors">Matériel &amp;
+                      Équipement</span>
                   </label>
                   <label class="flex items-center gap-3 cursor-pointer group">
-                    <input class="rounded border-outline-variant text-primary focus:ring-primary w-5 h-5" type="checkbox" />
-                    <span class="text-on-surface-variant group-hover:text-primary transition-colors">Aliments &amp; Nutriments</span>
+                    <input class="rounded border-outline-variant text-primary focus:ring-primary w-5 h-5"
+                      type="checkbox" />
+                    <span class="text-on-surface-variant group-hover:text-primary transition-colors">Aliments &amp;
+                      Nutriments</span>
                   </label>
                 </div>
               </div>
               <div class="space-y-4">
                 <label class="text-xs font-bold uppercase tracking-widest text-outline">Zone Géographique</label>
-                <select class="w-full py-3 px-4 bg-surface-container border-none rounded-2xl text-sm focus:ring-2 focus:ring-primary">
+                <select
+                  class="w-full py-3 px-4 bg-surface-container border-none rounded-2xl text-sm focus:ring-2 focus:ring-primary">
                   <option>Toute l'étendue</option>
                   <option selected>Touba</option>
                   <option>Dakar</option>
@@ -153,21 +241,28 @@
               <div class="space-y-4">
                 <label class="text-xs font-bold uppercase tracking-widest text-outline">Prix (FCFA)</label>
                 <div class="px-2">
-                  <input class="w-full h-2 bg-surface-container-highest rounded-full appearance-none accent-primary cursor-pointer" max="50000" min="500" step="500" type="range" />
-                  <div class="flex justify-between mt-2 text-xs font-medium text-outline"><span>500</span><span>50 000+</span></div>
+                  <input
+                    class="w-full h-2 bg-surface-container-highest rounded-full appearance-none accent-primary cursor-pointer"
+                    max="50000" min="500" step="500" type="range" />
+                  <div class="flex justify-between mt-2 text-xs font-medium text-outline"><span>500</span><span>50
+                      000+</span></div>
                 </div>
               </div>
             </div>
           </div>
           <div class="relative overflow-hidden rounded-3xl bg-primary-container p-6 text-on-primary-container group">
             <div class="relative z-10">
-              <span class="inline-block px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed text-[10px] font-bold uppercase tracking-wider mb-3">Premium</span>
+              <span
+                class="inline-block px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed text-[10px] font-bold uppercase tracking-wider mb-3">Premium</span>
               <h4 class="font-headline font-extrabold text-xl leading-tight mb-2">Vendez plus rapidement</h4>
               <p class="text-sm opacity-80 mb-4">Boostez la visibilité de vos produits à Touba.</p>
-              <button class="w-full py-2 bg-on-primary-container text-primary rounded-xl font-bold text-sm hover:scale-105 transition-transform">En savoir plus</button>
+              <button
+                class="w-full py-2 bg-on-primary-container text-primary rounded-xl font-bold text-sm hover:scale-105 transition-transform">En
+                savoir plus</button>
             </div>
             <div class="absolute -right-4 -bottom-4 opacity-20 group-hover:scale-110 transition-transform duration-500">
-              <span class="material-symbols-outlined text-8xl" style="font-variation-settings:'FILL' 1;">agriculture</span>
+              <span class="material-symbols-outlined text-8xl"
+                style="font-variation-settings:'FILL' 1;">agriculture</span>
             </div>
           </div>
         </div>
@@ -178,11 +273,13 @@
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
             <h1 class="font-headline font-black text-4xl tracking-tight text-primary mb-2">Marché AgroPoulet</h1>
-            <p class="text-on-surface-variant font-medium">Les meilleures offres de Touba et environs en direct des éleveurs.</p>
+            <p class="text-on-surface-variant font-medium">Les meilleures offres de Touba et environs en direct des
+              éleveurs.</p>
           </div>
           <div class="flex items-center gap-3">
             <span class="text-sm font-medium text-outline">Trier par:</span>
-            <button class="flex items-center gap-2 px-4 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-semibold hover:bg-surface-container transition-colors shadow-sm">
+            <button
+              class="flex items-center gap-2 px-4 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-full text-sm font-semibold hover:bg-surface-container transition-colors shadow-sm">
               Pertinence <span class="material-symbols-outlined text-sm">expand_more</span>
             </button>
           </div>
@@ -190,129 +287,192 @@
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
 
           <!-- Card 1 -->
-          <div class="group bg-surface-container-lowest rounded-3xl overflow-hidden editorial-shadow hover:shadow-[0_20px_50px_rgba(26,28,26,0.12)] transition-all duration-300 transform hover:-translate-y-1">
+          <div
+            class="group bg-surface-container-lowest rounded-3xl overflow-hidden editorial-shadow hover:shadow-[0_20px_50px_rgba(26,28,26,0.12)] transition-all duration-300 transform hover:-translate-y-1">
             <div class="h-56 overflow-hidden relative">
-              <img alt="Pondeuses" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-b1sI4GkLfl7naV5drTPcu2GXHv8k4u1Xtm0V_0XjNcH_3Yp-3xekqCVt3S1-lIU-14ecOPyUTGHpWp8HSxNUkQrA7kgzlfZdMOiWcX8JE98ZYbWi07Hj1_JMbXBJzsGmshoSmYAD2HtjNl1BD_7XTKVfblSOIOwT0uSuzTxcgMqjrc1n66iDuQVjo3OfiPTYSDIFvlooqatNxTOZqYzALItapbghS1kU2y6L0-L4-QfT0QJrDIjHfFe-6iAz276vR5fHuvX-_BSK" />
-              <div class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">En Stock</div>
-              <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-md text-white p-2 rounded-full hover:bg-white hover:text-primary transition-all cursor-pointer">
+              <img alt="Pondeuses"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-b1sI4GkLfl7naV5drTPcu2GXHv8k4u1Xtm0V_0XjNcH_3Yp-3xekqCVt3S1-lIU-14ecOPyUTGHpWp8HSxNUkQrA7kgzlfZdMOiWcX8JE98ZYbWi07Hj1_JMbXBJzsGmshoSmYAD2HtjNl1BD_7XTKVfblSOIOwT0uSuzTxcgMqjrc1n66iDuQVjo3OfiPTYSDIFvlooqatNxTOZqYzALItapbghS1kU2y6L0-L4-QfT0QJrDIjHfFe-6iAz276vR5fHuvX-_BSK" />
+              <div
+                class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">
+                En Stock</div>
+              <div
+                class="absolute top-4 right-4 bg-white/20 backdrop-blur-md text-white p-2 rounded-full hover:bg-white hover:text-primary transition-all cursor-pointer">
                 <span class="material-symbols-outlined text-base">favorite</span>
               </div>
             </div>
             <div class="p-6">
               <div class="flex justify-between items-start mb-2">
-                <h3 class="font-headline font-bold text-lg group-hover:text-primary transition-colors">Lot de 10 Pondeuses</h3>
+                <h3 class="font-headline font-bold text-lg group-hover:text-primary transition-colors">Lot de 10
+                  Pondeuses</h3>
                 <span class="font-headline font-extrabold text-primary">35 000 F</span>
               </div>
-              <div class="flex items-center gap-2 text-outline text-xs mb-4"><span class="material-symbols-outlined text-sm">location_on</span> Touba, Darou Khoudoss</div>
+              <div class="flex items-center gap-2 text-outline text-xs mb-4"><span
+                  class="material-symbols-outlined text-sm">location_on</span> Touba, Darou Khoudoss</div>
               <div class="flex gap-2 mb-6">
-                <span class="px-2 py-1 bg-surface-container text-outline-variant text-[10px] font-bold rounded uppercase">Bio</span>
-                <span class="px-2 py-1 bg-surface-container text-outline-variant text-[10px] font-bold rounded uppercase">20 Semaines</span>
+                <span
+                  class="px-2 py-1 bg-surface-container text-outline-variant text-[10px] font-bold rounded uppercase">Bio</span>
+                <span
+                  class="px-2 py-1 bg-surface-container text-outline-variant text-[10px] font-bold rounded uppercase">20
+                  Semaines</span>
               </div>
-              <button class="w-full py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-headline font-bold uppercase tracking-wider text-xs shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-95 transition-all">Voir / Acheter</button>
+              <button
+                class="w-full py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-headline font-bold uppercase tracking-wider text-xs shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-95 transition-all">Voir
+                / Acheter</button>
             </div>
           </div>
 
           <!-- Card 2 -->
-          <div class="group bg-surface-container-lowest rounded-3xl overflow-hidden editorial-shadow hover:shadow-[0_20px_50px_rgba(26,28,26,0.12)] transition-all duration-300 transform hover:-translate-y-1">
+          <div
+            class="group bg-surface-container-lowest rounded-3xl overflow-hidden editorial-shadow hover:shadow-[0_20px_50px_rgba(26,28,26,0.12)] transition-all duration-300 transform hover:-translate-y-1">
             <div class="h-56 overflow-hidden relative">
-              <img alt="Abreuvoir" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEze5Kc77SB049fZeZU_s5ObPqDZVEoF54c4ubspGy0CYEtVCEY1NwWFbkxW1sppPUYd0pgZ719Er30v62sozVe9lZtQ8Plbdg0z0tV1dBIXQ138L51l8-5XS-IkHfVSZM5RcuczKV38VfjwG6pc5TZIF_cVzy17qBT3rgnTkaEnMkvzzWMU4y9WMzXsPSo-TJaaFnzMbwztOQ6tBDtFGh2VdDDvZacz7K9XB937P4umwQfbmgaNKbbUbL8HdVGL0nVptYD2o51P32" />
-              <div class="absolute top-4 left-4 bg-secondary text-on-secondary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Nouveau</div>
+              <img alt="Abreuvoir"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEze5Kc77SB049fZeZU_s5ObPqDZVEoF54c4ubspGy0CYEtVCEY1NwWFbkxW1sppPUYd0pgZ719Er30v62sozVe9lZtQ8Plbdg0z0tV1dBIXQ138L51l8-5XS-IkHfVSZM5RcuczKV38VfjwG6pc5TZIF_cVzy17qBT3rgnTkaEnMkvzzWMU4y9WMzXsPSo-TJaaFnzMbwztOQ6tBDtFGh2VdDDvZacz7K9XB937P4umwQfbmgaNKbbUbL8HdVGL0nVptYD2o51P32" />
+              <div
+                class="absolute top-4 left-4 bg-secondary text-on-secondary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">
+                Nouveau</div>
             </div>
             <div class="p-6">
               <div class="flex justify-between items-start mb-2">
-                <h3 class="font-headline font-bold text-lg group-hover:text-primary transition-colors">Abreuvoir Automatique</h3>
+                <h3 class="font-headline font-bold text-lg group-hover:text-primary transition-colors">Abreuvoir
+                  Automatique</h3>
                 <span class="font-headline font-extrabold text-primary">8 500 F</span>
               </div>
-              <div class="flex items-center gap-2 text-outline text-xs mb-4"><span class="material-symbols-outlined text-sm">location_on</span> Touba, Marché Ocass</div>
+              <div class="flex items-center gap-2 text-outline text-xs mb-4"><span
+                  class="material-symbols-outlined text-sm">location_on</span> Touba, Marché Ocass</div>
               <div class="flex gap-2 mb-6">
-                <span class="px-2 py-1 bg-surface-container text-outline-variant text-[10px] font-bold rounded uppercase">Inox</span>
-                <span class="px-2 py-1 bg-surface-container text-outline-variant text-[10px] font-bold rounded uppercase">Pression</span>
+                <span
+                  class="px-2 py-1 bg-surface-container text-outline-variant text-[10px] font-bold rounded uppercase">Inox</span>
+                <span
+                  class="px-2 py-1 bg-surface-container text-outline-variant text-[10px] font-bold rounded uppercase">Pression</span>
               </div>
-              <button class="w-full py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-headline font-bold uppercase tracking-wider text-xs shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-95 transition-all">Voir / Acheter</button>
+              <button
+                class="w-full py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-headline font-bold uppercase tracking-wider text-xs shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-95 transition-all">Voir
+                / Acheter</button>
             </div>
           </div>
 
           <!-- Card 3 -->
-          <div class="group bg-surface-container-lowest rounded-3xl overflow-hidden editorial-shadow hover:shadow-[0_20px_50px_rgba(26,28,26,0.12)] transition-all duration-300 transform hover:-translate-y-1">
+          <div
+            class="group bg-surface-container-lowest rounded-3xl overflow-hidden editorial-shadow hover:shadow-[0_20px_50px_rgba(26,28,26,0.12)] transition-all duration-300 transform hover:-translate-y-1">
             <div class="h-56 overflow-hidden relative">
-              <img alt="Aliments" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEpzBm8WOO0h_4ShsP3sbsvrSyzQPfv1T3Xsv7szbkFdPGen8M0Pau0A4vekE-M0Dz5pkXbCxD_cG6Yn30bksfGwccQczUzxXnGGXiORMqU8fj-o2cOEGNp-xjKgX5L6HvdCFz9oCsVdQJ_1z42NDNmMkUbssmgCB89wljq8tsiuqz4ejEYZoUi5bq70kP2EbBwRAP374SbQFVQl6DspJzTHB6Z3CChogWqnRpTywi8xv3hovc2Ny_pUC1j1XVBaArs_gNiRl_SOD1" />
-              <div class="absolute top-4 left-4 bg-tertiary text-on-tertiary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Top Vente</div>
+              <img alt="Aliments"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEpzBm8WOO0h_4ShsP3sbsvrSyzQPfv1T3Xsv7szbkFdPGen8M0Pau0A4vekE-M0Dz5pkXbCxD_cG6Yn30bksfGwccQczUzxXnGGXiORMqU8fj-o2cOEGNp-xjKgX5L6HvdCFz9oCsVdQJ_1z42NDNmMkUbssmgCB89wljq8tsiuqz4ejEYZoUi5bq70kP2EbBwRAP374SbQFVQl6DspJzTHB6Z3CChogWqnRpTywi8xv3hovc2Ny_pUC1j1XVBaArs_gNiRl_SOD1" />
+              <div
+                class="absolute top-4 left-4 bg-tertiary text-on-tertiary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">
+                Top Vente</div>
             </div>
             <div class="p-6">
               <div class="flex justify-between items-start mb-2">
-                <h3 class="font-headline font-bold text-lg group-hover:text-primary transition-colors">Sac Aliment 50kg</h3>
+                <h3 class="font-headline font-bold text-lg group-hover:text-primary transition-colors">Sac Aliment 50kg
+                </h3>
                 <span class="font-headline font-extrabold text-primary">18 900 F</span>
               </div>
-              <div class="flex items-center gap-2 text-outline text-xs mb-4"><span class="material-symbols-outlined text-sm">location_on</span> Livraison Gratuite (Touba)</div>
+              <div class="flex items-center gap-2 text-outline text-xs mb-4"><span
+                  class="material-symbols-outlined text-sm">location_on</span> Livraison Gratuite (Touba)</div>
               <div class="flex gap-2 mb-6">
-                <span class="px-2 py-1 bg-surface-container text-outline-variant text-[10px] font-bold rounded uppercase">Protéines++</span>
-                <span class="px-2 py-1 bg-surface-container text-outline-variant text-[10px] font-bold rounded uppercase">Local</span>
+                <span
+                  class="px-2 py-1 bg-surface-container text-outline-variant text-[10px] font-bold rounded uppercase">Protéines++</span>
+                <span
+                  class="px-2 py-1 bg-surface-container text-outline-variant text-[10px] font-bold rounded uppercase">Local</span>
               </div>
-              <button class="w-full py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-headline font-bold uppercase tracking-wider text-xs shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-95 transition-all">Voir / Acheter</button>
+              <button
+                class="w-full py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-headline font-bold uppercase tracking-wider text-xs shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-95 transition-all">Voir
+                / Acheter</button>
             </div>
           </div>
 
           <!-- Card 4 -->
-          <div class="group bg-surface-container-lowest rounded-3xl overflow-hidden editorial-shadow hover:shadow-[0_20px_50px_rgba(26,28,26,0.12)] transition-all duration-300 transform hover:-translate-y-1">
+          <div
+            class="group bg-surface-container-lowest rounded-3xl overflow-hidden editorial-shadow hover:shadow-[0_20px_50px_rgba(26,28,26,0.12)] transition-all duration-300 transform hover:-translate-y-1">
             <div class="h-56 overflow-hidden relative">
-              <img alt="Poussins" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8mqKQjyxl8sfzA_xZfWlVOkBX8w438nqk5yntvuPv4AXt_O7d9gP3M7PWdqVcSPvfOiBttdOorKMC_8xx-VyGcExv8adJcP9Nw43iTmwbIPbMUOKHNnScNr8eW-qdt7I68NENjGXAp7RaryjZ9Wx-ZhTWrJpfGy2pU3haZrTrn_chqvDFKf2n6LleVSYgOmMxbUkJTF6jJPt7OushXllYhQPVMeUbMc5CboPtCXzOFW2Vzh9R1vuA1uVxT964GVQS3EosaMgugasA" />
-              <div class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Disponible</div>
+              <img alt="Poussins"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8mqKQjyxl8sfzA_xZfWlVOkBX8w438nqk5yntvuPv4AXt_O7d9gP3M7PWdqVcSPvfOiBttdOorKMC_8xx-VyGcExv8adJcP9Nw43iTmwbIPbMUOKHNnScNr8eW-qdt7I68NENjGXAp7RaryjZ9Wx-ZhTWrJpfGy2pU3haZrTrn_chqvDFKf2n6LleVSYgOmMxbUkJTF6jJPt7OushXllYhQPVMeUbMc5CboPtCXzOFW2Vzh9R1vuA1uVxT964GVQS3EosaMgugasA" />
+              <div
+                class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">
+                Disponible</div>
             </div>
             <div class="p-6">
               <div class="flex justify-between items-start mb-2">
-                <h3 class="font-headline font-bold text-lg group-hover:text-primary transition-colors">Poussins d'un Jour (Lot 100)</h3>
+                <h3 class="font-headline font-bold text-lg group-hover:text-primary transition-colors">Poussins d'un
+                  Jour (Lot 100)</h3>
                 <span class="font-headline font-extrabold text-primary">55 000 F</span>
               </div>
-              <div class="flex items-center gap-2 text-outline text-xs mb-4"><span class="material-symbols-outlined text-sm">timer</span> Disponible Jeudi</div>
+              <div class="flex items-center gap-2 text-outline text-xs mb-4"><span
+                  class="material-symbols-outlined text-sm">timer</span> Disponible Jeudi</div>
               <div class="flex gap-2 mb-6">
-                <span class="px-2 py-1 bg-surface-container text-outline-variant text-[10px] font-bold rounded uppercase">Lohmann</span>
+                <span
+                  class="px-2 py-1 bg-surface-container text-outline-variant text-[10px] font-bold rounded uppercase">Lohmann</span>
               </div>
-              <button class="w-full py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-headline font-bold uppercase tracking-wider text-xs shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-95 transition-all">Voir / Acheter</button>
+              <button
+                class="w-full py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-headline font-bold uppercase tracking-wider text-xs shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-95 transition-all">Voir
+                / Acheter</button>
             </div>
           </div>
 
           <!-- Card 5 -->
-          <div class="group bg-surface-container-lowest rounded-3xl overflow-hidden editorial-shadow hover:shadow-[0_20px_50px_rgba(26,28,26,0.12)] transition-all duration-300 transform hover:-translate-y-1">
+          <div
+            class="group bg-surface-container-lowest rounded-3xl overflow-hidden editorial-shadow hover:shadow-[0_20px_50px_rgba(26,28,26,0.12)] transition-all duration-300 transform hover:-translate-y-1">
             <div class="h-56 overflow-hidden relative">
-              <img alt="Lampe" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVN1PxcKDuxgeu2wP_uh5lhF-gRqTU7HXTTUMvhkAlKaGiCqNkN5ZXJwl5WBqVAjC7oGUlwbBIIzx9ysLrAT5M6LTihY-9Bk2fKxUy1tkDhQ2qasvsIR919qcy5HEGW_mawsZTeviCJHPPtlr1-PoV6OYmL7fy4INTqs_hWAzE_NbzB6Bcy8grnQH-EhXn9SFNu7SxRPd1uNBgpGF0nT1U0LD-eGdRiNWzssnAQkU85CfJtOadSTYNRXexEWu3yhv7zoAv5SCb1eWb" />
+              <img alt="Lampe"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVN1PxcKDuxgeu2wP_uh5lhF-gRqTU7HXTTUMvhkAlKaGiCqNkN5ZXJwl5WBqVAjC7oGUlwbBIIzx9ysLrAT5M6LTihY-9Bk2fKxUy1tkDhQ2qasvsIR919qcy5HEGW_mawsZTeviCJHPPtlr1-PoV6OYmL7fy4INTqs_hWAzE_NbzB6Bcy8grnQH-EhXn9SFNu7SxRPd1uNBgpGF0nT1U0LD-eGdRiNWzssnAQkU85CfJtOadSTYNRXexEWu3yhv7zoAv5SCb1eWb" />
             </div>
             <div class="p-6">
               <div class="flex justify-between items-start mb-2">
-                <h3 class="font-headline font-bold text-lg group-hover:text-primary transition-colors">Lampe Chauffante Solaire</h3>
+                <h3 class="font-headline font-bold text-lg group-hover:text-primary transition-colors">Lampe Chauffante
+                  Solaire</h3>
                 <span class="font-headline font-extrabold text-primary">12 000 F</span>
               </div>
-              <div class="flex items-center gap-2 text-outline text-xs mb-4"><span class="material-symbols-outlined text-sm">location_on</span> Touba, Darou Mouhty</div>
+              <div class="flex items-center gap-2 text-outline text-xs mb-4"><span
+                  class="material-symbols-outlined text-sm">location_on</span> Touba, Darou Mouhty</div>
               <div class="flex gap-2 mb-6">
-                <span class="px-2 py-1 bg-surface-container text-outline-variant text-[10px] font-bold rounded uppercase">Énergie Verte</span>
+                <span
+                  class="px-2 py-1 bg-surface-container text-outline-variant text-[10px] font-bold rounded uppercase">Énergie
+                  Verte</span>
               </div>
-              <button class="w-full py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-headline font-bold uppercase tracking-wider text-xs shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-95 transition-all">Voir / Acheter</button>
+              <button
+                class="w-full py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-headline font-bold uppercase tracking-wider text-xs shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-95 transition-all">Voir
+                / Acheter</button>
             </div>
           </div>
 
           <!-- Card 6 -->
-          <div class="group bg-surface-container-lowest rounded-3xl overflow-hidden editorial-shadow hover:shadow-[0_20px_50px_rgba(26,28,26,0.12)] transition-all duration-300 transform hover:-translate-y-1">
+          <div
+            class="group bg-surface-container-lowest rounded-3xl overflow-hidden editorial-shadow hover:shadow-[0_20px_50px_rgba(26,28,26,0.12)] transition-all duration-300 transform hover:-translate-y-1">
             <div class="h-56 overflow-hidden relative">
-              <img alt="Cage" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6a03F3p8OttFaaVt9aMilV6C5Axdz5Fraa7zjs-t2l_ka4Zc8cIebnt4V8bQt6QsT5OuZuaYuZVC8mIUJ_YkSJ73Kx21OBGV10FGp5qGufx1hKpBJIFWaSqPN9Xtj0yeh5clW1-iUsRZ0u8JnuHVbDq7us3XUET1fwwSJb4djio1cftNBlUn4yhbbqEQHYkW_Jb8np_CgG5d1RHIZDVuJuoNKYQvt1hGO-MYNxHkQZA2AE3LnzIGhshwcfo3rWBVTmA9uEwTpilaK" />
+              <img alt="Cage" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6a03F3p8OttFaaVt9aMilV6C5Axdz5Fraa7zjs-t2l_ka4Zc8cIebnt4V8bQt6QsT5OuZuaYuZVC8mIUJ_YkSJ73Kx21OBGV10FGp5qGufx1hKpBJIFWaSqPN9Xtj0yeh5clW1-iUsRZ0u8JnuHVbDq7us3XUET1fwwSJb4djio1cftNBlUn4yhbbqEQHYkW_Jb8np_CgG5d1RHIZDVuJuoNKYQvt1hGO-MYNxHkQZA2AE3LnzIGhshwcfo3rWBVTmA9uEwTpilaK" />
             </div>
             <div class="p-6">
               <div class="flex justify-between items-start mb-2">
-                <h3 class="font-headline font-bold text-lg group-hover:text-primary transition-colors">Cage de Transport Métal</h3>
+                <h3 class="font-headline font-bold text-lg group-hover:text-primary transition-colors">Cage de Transport
+                  Métal</h3>
                 <span class="font-headline font-extrabold text-primary">12 500 F</span>
               </div>
-              <div class="flex items-center gap-2 text-outline text-xs mb-4"><span class="material-symbols-outlined text-sm">local_shipping</span> Livraison possible</div>
+              <div class="flex items-center gap-2 text-outline text-xs mb-4"><span
+                  class="material-symbols-outlined text-sm">local_shipping</span> Livraison possible</div>
               <div class="flex gap-2 mb-6">
-                <span class="px-2 py-1 bg-surface-container text-outline-variant text-[10px] font-bold rounded uppercase">Robuste</span>
+                <span
+                  class="px-2 py-1 bg-surface-container text-outline-variant text-[10px] font-bold rounded uppercase">Robuste</span>
               </div>
-              <button class="w-full py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-headline font-bold uppercase tracking-wider text-xs shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-95 transition-all">Voir / Acheter</button>
+              <button
+                class="w-full py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full font-headline font-bold uppercase tracking-wider text-xs shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-95 transition-all">Voir
+                / Acheter</button>
             </div>
           </div>
         </div>
 
         <!-- Load more -->
         <div class="mt-20 flex justify-center">
-          <button class="group flex items-center gap-3 px-10 py-4 bg-surface-container-highest rounded-full font-headline font-bold text-on-surface-variant hover:bg-primary hover:text-on-primary transition-all duration-300">
+          <button
+            class="group flex items-center gap-3 px-10 py-4 bg-surface-container-highest rounded-full font-headline font-bold text-on-surface-variant hover:bg-primary hover:text-on-primary transition-all duration-300">
             Afficher plus de produits
-            <span class="material-symbols-outlined group-hover:rotate-180 transition-transform duration-500">expand_more</span>
+            <span
+              class="material-symbols-outlined group-hover:rotate-180 transition-transform duration-500">expand_more</span>
           </button>
         </div>
       </section>
@@ -325,19 +485,25 @@
       <section class="px-6 pt-4 pb-2 space-y-4">
         <div class="relative">
           <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
-          <input class="w-full pl-12 pr-4 py-4 bg-surface-container-highest rounded-xl border-none focus:ring-2 focus:ring-primary text-sm" placeholder="Rechercher du matériel, poulets..." type="text" />
+          <input
+            class="w-full pl-12 pr-4 py-4 bg-surface-container-highest rounded-xl border-none focus:ring-2 focus:ring-primary text-sm"
+            placeholder="Rechercher du matériel, poulets..." type="text" />
         </div>
         <div class="flex gap-3 overflow-x-auto no-scrollbar -mx-6 px-6 pb-1">
-          <button class="flex-none px-5 py-2.5 bg-primary text-on-primary rounded-full text-sm font-semibold flex items-center gap-2">
+          <button
+            class="flex-none px-5 py-2.5 bg-primary text-on-primary rounded-full text-sm font-semibold flex items-center gap-2">
             <span class="material-symbols-outlined text-[18px]">category</span> Tout
           </button>
-          <button class="flex-none px-5 py-2.5 bg-surface-container-low text-on-surface-variant rounded-full text-sm font-medium flex items-center gap-2">
+          <button
+            class="flex-none px-5 py-2.5 bg-surface-container-low text-on-surface-variant rounded-full text-sm font-medium flex items-center gap-2">
             <span class="material-symbols-outlined text-[18px]">pets</span> Volailles
           </button>
-          <button class="flex-none px-5 py-2.5 bg-surface-container-low text-on-surface-variant rounded-full text-sm font-medium flex items-center gap-2">
+          <button
+            class="flex-none px-5 py-2.5 bg-surface-container-low text-on-surface-variant rounded-full text-sm font-medium flex items-center gap-2">
             <span class="material-symbols-outlined text-[18px]">agriculture</span> Matériel
           </button>
-          <button class="flex-none px-5 py-2.5 bg-surface-container-low text-on-surface-variant rounded-full text-sm font-medium flex items-center gap-2">
+          <button
+            class="flex-none px-5 py-2.5 bg-surface-container-low text-on-surface-variant rounded-full text-sm font-medium flex items-center gap-2">
             <span class="material-symbols-outlined text-[18px]">restaurant_menu</span> Aliments
           </button>
         </div>
@@ -354,12 +520,15 @@
         <!-- Featured -->
         <div class="group relative bg-surface-container-lowest rounded-[1.5rem] overflow-hidden editorial-shadow">
           <div class="aspect-[16/10] overflow-hidden">
-            <img alt="Poulets de chair" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrNceRgd6EP1j0mIdrZUs4U3K3V_mLL6bU59HD9StNwESJUhsGdVJ8Ufc0zLcBVh1esf8L4ZW0NhQj_fb0r9yzi8n7IMrJgEt9j31YxUIQ_O9RW8VoFxOLZK_8EttSgx_g8PbV1T5Giezuuys4L3f0yUvScjHm6zGT-A4SEUDoYwMnFjXWXCxYaQr7F3tSvh_Ojm4ArJ-pnQtfMbFjrlQJNCsbxk9LPiBqprWNX6KztoNlqO4U81jRGj8y4Ge1MU24VrGYT1p5-53i" />
+            <img alt="Poulets de chair"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrNceRgd6EP1j0mIdrZUs4U3K3V_mLL6bU59HD9StNwESJUhsGdVJ8Ufc0zLcBVh1esf8L4ZW0NhQj_fb0r9yzi8n7IMrJgEt9j31YxUIQ_O9RW8VoFxOLZK_8EttSgx_g8PbV1T5Giezuuys4L3f0yUvScjHm6zGT-A4SEUDoYwMnFjXWXCxYaQr7F3tSvh_Ojm4ArJ-pnQtfMbFjrlQJNCsbxk9LPiBqprWNX6KztoNlqO4U81jRGj8y4Ge1MU24VrGYT1p5-53i" />
           </div>
           <div class="p-6">
             <div class="flex justify-between items-start mb-2">
               <div>
-                <span class="inline-block px-2 py-1 bg-tertiary-container/10 text-on-tertiary-fixed-variant text-[10px] font-bold uppercase tracking-widest rounded mb-2">Populaire</span>
+                <span
+                  class="inline-block px-2 py-1 bg-tertiary-container/10 text-on-tertiary-fixed-variant text-[10px] font-bold uppercase tracking-widest rounded mb-2">Populaire</span>
                 <h3 class="font-headline font-bold text-xl leading-tight">Lot de 50 Poulets de Chair</h3>
               </div>
               <div class="text-right shrink-0 ml-4">
@@ -384,40 +553,61 @@
         <div class="grid grid-cols-2 gap-4">
           <div class="bg-surface-container-lowest rounded-[1.25rem] overflow-hidden editorial-shadow flex flex-col">
             <div class="aspect-square relative overflow-hidden">
-              <img alt="Abreuvoir" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChmuuNkMhpPy44UklrXKQSHDYKfePmjnLyMipNv5A9SMSJkKmdYxwc4xx6Js9VW_HCSfkL-BgxZo3FjWjSbZ6u7MOyh9AT8mPyaX3_yjisUqE8B_HLhWYikiOjLjxv1Vbv7jZn_0D3dmojD7cXt7uMgaWQGy5z3AHZY4LcImdyx-izy9u5CluVqw9FZ_SPQSO0bbz_JcRhVpMKWLse5VXyHCfF6sYdFSE4gj5QyOdkZaQagV-N04kR1Dn5EDT76TMInjavVkphs6Rf" />
+              <img alt="Abreuvoir" class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuChmuuNkMhpPy44UklrXKQSHDYKfePmjnLyMipNv5A9SMSJkKmdYxwc4xx6Js9VW_HCSfkL-BgxZo3FjWjSbZ6u7MOyh9AT8mPyaX3_yjisUqE8B_HLhWYikiOjLjxv1Vbv7jZn_0D3dmojD7cXt7uMgaWQGy5z3AHZY4LcImdyx-izy9u5CluVqw9FZ_SPQSO0bbz_JcRhVpMKWLse5VXyHCfF6sYdFSE4gj5QyOdkZaQagV-N04kR1Dn5EDT76TMInjavVkphs6Rf" />
               <span class="absolute top-2 right-2 bg-white/90 p-1.5 rounded-full shadow-sm">
-                <span class="material-symbols-outlined text-[18px] text-error" style="font-variation-settings:'FILL' 1;">favorite</span>
+                <span class="material-symbols-outlined text-[18px] text-error"
+                  style="font-variation-settings:'FILL' 1;">favorite</span>
               </span>
             </div>
             <div class="p-4 flex flex-col flex-grow justify-between">
-              <div><h4 class="font-headline font-bold text-sm leading-snug">Abreuvoir Auto 10L</h4><p class="text-[10px] text-outline mt-1 flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">inventory_2</span> 15 disponibles</p></div>
+              <div>
+                <h4 class="font-headline font-bold text-sm leading-snug">Abreuvoir Auto 10L</h4>
+                <p class="text-[10px] text-outline mt-1 flex items-center gap-1"><span
+                    class="material-symbols-outlined text-[12px]">inventory_2</span> 15 disponibles</p>
+              </div>
               <span class="text-secondary font-black text-sm mt-3 block">8 500 FCFA</span>
             </div>
           </div>
           <div class="bg-surface-container-lowest rounded-[1.25rem] overflow-hidden editorial-shadow flex flex-col">
             <div class="aspect-square overflow-hidden">
-              <img alt="Aliments" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHObhuHrSzFUFPvT_PIVISvMqpUD_7mlSAr6ZYIJ1QA2-XCEl1rfr0QgPymjUVmYcKAQyMkATXsTnzSKtuVPib1VNB8uM2KAOozZOuvwvIQKWvFFerUTfhctGwg_eSuO7lZmF-idVq6o3XHx2Md3jkHgwNI4CXIJxrQ94rhetJGBRe8DF9o_Au4R0bxBzBsbbR9a3vzhtRdyGgLD-2OjWc9GmKoSrT5tRytue5x1TsWFfOW2dQVgfuClyevHoqI-RNfOp1sauz5Hes" />
+              <img alt="Aliments" class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHObhuHrSzFUFPvT_PIVISvMqpUD_7mlSAr6ZYIJ1QA2-XCEl1rfr0QgPymjUVmYcKAQyMkATXsTnzSKtuVPib1VNB8uM2KAOozZOuvwvIQKWvFFerUTfhctGwg_eSuO7lZmF-idVq6o3XHx2Md3jkHgwNI4CXIJxrQ94rhetJGBRe8DF9o_Au4R0bxBzBsbbR9a3vzhtRdyGgLD-2OjWc9GmKoSrT5tRytue5x1TsWFfOW2dQVgfuClyevHoqI-RNfOp1sauz5Hes" />
             </div>
             <div class="p-4 flex flex-col flex-grow justify-between">
-              <div><h4 class="font-headline font-bold text-sm leading-snug">Aliment Démarrage 50kg</h4><p class="text-[10px] text-outline mt-1 flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">location_on</span> Touba Gare</p></div>
+              <div>
+                <h4 class="font-headline font-bold text-sm leading-snug">Aliment Démarrage 50kg</h4>
+                <p class="text-[10px] text-outline mt-1 flex items-center gap-1"><span
+                    class="material-symbols-outlined text-[12px]">location_on</span> Touba Gare</p>
+              </div>
               <span class="text-secondary font-black text-sm mt-3 block">18 000 FCFA</span>
             </div>
           </div>
           <div class="bg-surface-container-lowest rounded-[1.25rem] overflow-hidden editorial-shadow flex flex-col">
             <div class="aspect-square overflow-hidden">
-              <img alt="Poussins" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8mqKQjyxl8sfzA_xZfWlVOkBX8w438nqk5yntvuPv4AXt_O7d9gP3M7PWdqVcSPvfOiBttdOorKMC_8xx-VyGcExv8adJcP9Nw43iTmwbIPbMUOKHNnScNr8eW-qdt7I68NENjGXAp7RaryjZ9Wx-ZhTWrJpfGy2pU3haZrTrn_chqvDFKf2n6LleVSYgOmMxbUkJTF6jJPt7OushXllYhQPVMeUbMc5CboPtCXzOFW2Vzh9R1vuA1uVxT964GVQS3EosaMgugasA" />
+              <img alt="Poussins" class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8mqKQjyxl8sfzA_xZfWlVOkBX8w438nqk5yntvuPv4AXt_O7d9gP3M7PWdqVcSPvfOiBttdOorKMC_8xx-VyGcExv8adJcP9Nw43iTmwbIPbMUOKHNnScNr8eW-qdt7I68NENjGXAp7RaryjZ9Wx-ZhTWrJpfGy2pU3haZrTrn_chqvDFKf2n6LleVSYgOmMxbUkJTF6jJPt7OushXllYhQPVMeUbMc5CboPtCXzOFW2Vzh9R1vuA1uVxT964GVQS3EosaMgugasA" />
             </div>
             <div class="p-4 flex flex-col flex-grow justify-between">
-              <div><h4 class="font-headline font-bold text-sm leading-snug">Poussins d'un jour (Lot 100)</h4><p class="text-[10px] text-outline mt-1 flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">timer</span> Dispo Jeudi</p></div>
+              <div>
+                <h4 class="font-headline font-bold text-sm leading-snug">Poussins d'un jour (Lot 100)</h4>
+                <p class="text-[10px] text-outline mt-1 flex items-center gap-1"><span
+                    class="material-symbols-outlined text-[12px]">timer</span> Dispo Jeudi</p>
+              </div>
               <span class="text-secondary font-black text-sm mt-3 block">55 000 FCFA</span>
             </div>
           </div>
           <div class="bg-surface-container-lowest rounded-[1.25rem] overflow-hidden editorial-shadow flex flex-col">
             <div class="aspect-square overflow-hidden">
-              <img alt="Cage" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6a03F3p8OttFaaVt9aMilV6C5Axdz5Fraa7zjs-t2l_ka4Zc8cIebnt4V8bQt6QsT5OuZuaYuZVC8mIUJ_YkSJ73Kx21OBGV10FGp5qGufx1hKpBJIFWaSqPN9Xtj0yeh5clW1-iUsRZ0u8JnuHVbDq7us3XUET1fwwSJb4djio1cftNBlUn4yhbbqEQHYkW_Jb8np_CgG5d1RHIZDVuJuoNKYQvt1hGO-MYNxHkQZA2AE3LnzIGhshwcfo3rWBVTmA9uEwTpilaK" />
+              <img alt="Cage" class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6a03F3p8OttFaaVt9aMilV6C5Axdz5Fraa7zjs-t2l_ka4Zc8cIebnt4V8bQt6QsT5OuZuaYuZVC8mIUJ_YkSJ73Kx21OBGV10FGp5qGufx1hKpBJIFWaSqPN9Xtj0yeh5clW1-iUsRZ0u8JnuHVbDq7us3XUET1fwwSJb4djio1cftNBlUn4yhbbqEQHYkW_Jb8np_CgG5d1RHIZDVuJuoNKYQvt1hGO-MYNxHkQZA2AE3LnzIGhshwcfo3rWBVTmA9uEwTpilaK" />
             </div>
             <div class="p-4 flex flex-col flex-grow justify-between">
-              <div><h4 class="font-headline font-bold text-sm leading-snug">Cage de Transport Métal</h4><p class="text-[10px] text-outline mt-1 flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">local_shipping</span> Livraison possible</p></div>
+              <div>
+                <h4 class="font-headline font-bold text-sm leading-snug">Cage de Transport Métal</h4>
+                <p class="text-[10px] text-outline mt-1 flex items-center gap-1"><span
+                    class="material-symbols-outlined text-[12px]">local_shipping</span> Livraison possible</p>
+              </div>
               <span class="text-secondary font-black text-sm mt-3 block">12 500 FCFA</span>
             </div>
           </div>
@@ -426,67 +616,78 @@
     </main>
   </div>
 
-  <!-- FOOTER -->
-  <footer class="bg-[#efeeeb] w-full rounded-t-3xl mt-12 mb-20 md:mb-0">
+ <!-- ===== FOOTER ===== -->
+  <footer class="bg-[#efeeeb] w-full rounded-t-3xl mt-0 mb-20 md:mb-0">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 px-8 py-12 md:py-16 max-w-7xl mx-auto">
       <div class="space-y-4 md:space-y-6">
-        <span class="font-headline font-black text-emerald-900 text-2xl md:text-3xl block">AgroPoulet</span>
-        <p class="font-['Inter'] text-sm leading-relaxed text-slate-600">La plateforme leader pour la modernisation de l'aviculture au Sénégal. De l'achat d'intrants à la vente de produits finis.</p>
-      </div>
-      <div class="flex flex-col gap-4">
-        <h4 class="font-headline font-bold text-emerald-900">Explorer</h4>
-        <div class="flex flex-col gap-3 text-sm">
-          <a class="text-slate-600 hover:text-emerald-500 transition-colors" href="apropos.html">À propos</a>
-          <a class="text-slate-600 hover:text-emerald-500 transition-colors" href="#">Devenir Fournisseur</a>
-          <a class="text-slate-600 hover:text-emerald-500 transition-colors" href="formation.html">Guide Élevage</a>
-          <a class="text-slate-600 hover:text-emerald-500 transition-colors" href="contact.html">Contact</a>
+        <div class="font-['Manrope'] font-black text-emerald-900 text-2xl md:text-3xl">AgroPoulet</div>
+        <p class="font-['Inter'] text-sm leading-relaxed text-slate-600">
+          La révolution numérique au service de la souveraineté alimentaire du Sénégal. Rejoignez le mouvement "The Digital Agronomist".
+        </p>
+        <div class="flex gap-4">
+          <a class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
+          <a class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+          <a class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform" href="#"><span class="material-symbols-outlined">share</span></a>
         </div>
       </div>
-      <div class="space-y-4">
-        <h4 class="font-headline font-bold text-emerald-900">Newsletter</h4>
+      <div>
+        <h4 class="font-headline font-bold text-lg mb-4 md:mb-6">Navigation</h4>
+        <ul class="space-y-3 md:space-y-4">
+          <li><a class="font-['Inter'] text-sm text-slate-600 hover:text-emerald-500 transition-colors" href="#">À propos</a></li>
+          <li><a class="font-['Inter'] text-sm text-slate-600 hover:text-emerald-500 transition-colors" href="#">Devenir Fournisseur</a></li>
+          <li><a class="font-['Inter'] text-sm text-slate-600 hover:text-emerald-500 transition-colors" href="#">Guide Élevage</a></li>
+          <li><a class="font-['Inter'] text-sm text-slate-600 hover:text-emerald-500 transition-colors" href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-headline font-bold text-lg mb-4 md:mb-6">Newsletter</h4>
+        <p class="text-sm text-on-surface-variant mb-4">Recevez les prix du marché hebdomadaires directement.</p>
         <div class="flex gap-2">
-          <input class="flex-grow bg-white border-none rounded-2xl px-4 py-3 text-sm" placeholder="Email" type="email" />
-          <button class="bg-primary text-on-primary p-3 rounded-2xl hover:scale-105 transition-transform"><span class="material-symbols-outlined">send</span></button>
+          <input class="flex-1 bg-white border-none rounded-full px-6 py-3 text-sm focus:ring-2 focus:ring-primary" placeholder="votre@email.com" type="email" />
+          <button class="bg-primary text-white p-3 rounded-full"><span class="material-symbols-outlined">send</span></button>
         </div>
-        <p class="text-[10px] text-slate-500 font-medium uppercase tracking-widest">© 2024 AgroPoulet Sénégal. Propulsé par Le Digital Agronomiste.</p>
       </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-8 py-6 border-t border-outline-variant/30 text-center">
+      <p class="font-['Inter'] text-sm text-slate-600">© 2024 AgroPoulet Sénégal. Propulsé par Le Digital Agronomiste.</p>
     </div>
   </footer>
 
-  <!-- WhatsApp FAB -->
-  <a class="hidden md:flex fixed bottom-8 right-8 z-[60] items-center gap-3 bg-[#25D366] text-white px-6 py-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group" href="https://wa.me/221000000000" target="_blank">
-    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">chat</span>
-    <span class="font-headline font-bold">Contact WhatsApp</span>
-    <div class="absolute -top-1 -right-1 flex h-4 w-4">
-      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-      <span class="relative inline-flex rounded-full h-4 w-4 bg-green-500"></span>
-    </div>
+  <!-- ===== WhatsApp FAB ===== -->
+  <!-- Desktop: bottom-right corner -->
+  <a class="hidden md:flex fixed bottom-10 right-10 z-[100] w-16 h-16 bg-[#25D366] text-white rounded-full items-center justify-center shadow-2xl hover:scale-110 active:scale-90 transition-all duration-300"
+    href="https://wa.me/221000000000" target="_blank">
+    <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793 0-.852.448-1.271.607-1.445.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.088.275.073.376-.043.101-.116.433-.506.548-.68.116-.174.231-.145.39-.087.159.058 1.011.477 1.184.564.173.087.289.129.332.202.043.073.043.419-.101.824zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.176L2 22l4.957-1.3c1.473.845 3.177 1.3 5.043 1.3 5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+    </svg>
   </a>
-  <a class="md:hidden fixed bottom-24 right-5 z-[60] bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl active:scale-90 transition-transform" href="https://wa.me/221000000000">
+  <!-- Mobile: above bottom nav -->
+  <a class="md:hidden fixed bottom-24 right-5 z-[60] bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl active:scale-90 transition-transform"
+    href="https://wa.me/221000000000">
     <span class="material-symbols-outlined text-2xl">chat</span>
   </a>
 
-  <!-- BOTTOM NAV (mobile only) -->
-  <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 backdrop-blur-lg rounded-t-[2.5rem] border-t border-slate-100 shadow-[0_-10px_40px_rgba(0,109,68,0.08)]">
-    <a class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 hover:text-emerald-700 active:scale-90 transition-transform duration-150" href="accueil.html">
+ <!-- ===== BOTTOM NAV (mobile only) ===== -->
+  <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-1 pb-6 pt-3 bg-white/80 backdrop-blur-lg rounded-t-[2.5rem] border-t border-slate-100 shadow-[0_-10px_40px_rgba(0,109,68,0.08)]">
+    <a class="flex flex-col items-center justify-center text-slate-400 px-3 py-2 hover:text-emerald-700 active:scale-90 transition-transform duration-150" href="formation.html">
       <span class="material-symbols-outlined">home</span>
-      <span class="font-['Inter'] text-[10px] font-medium uppercase tracking-widest mt-1">Accueil</span>
+      <span class="font-['Inter'] text-[9px] font-medium uppercase mt-1">Accueil</span>
     </a>
-    <a class="flex flex-col items-center justify-center bg-emerald-100 text-emerald-900 rounded-2xl px-5 py-2 active:scale-90 transition-transform duration-150" href="#">
-      <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">storefront</span>
-      <span class="font-['Inter'] text-[10px] font-medium uppercase tracking-widest mt-1">Marché</span>
+    <a class="flex flex-col items-center justify-center bg-emerald-100 text-emerald-900 rounded-2xl px-3 py-2 active:scale-90 transition-transform duration-150" href="#">
+      <span class="material-symbols-outlined">storefront</span>
+      <span class="font-['Inter'] text-[9px] font-medium uppercase mt-1">Marché</span>
     </a>
-    <a class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 hover:text-emerald-700 active:scale-90 transition-transform duration-150" href="formation.html">
+    <a class="flex flex-col items-center justify-center text-slate-400 px-3 py-2 hover:text-emerald-700 active:scale-90 transition-transform duration-150" href="formation.html">
       <span class="material-symbols-outlined">school</span>
-      <span class="font-['Inter'] text-[10px] font-medium uppercase tracking-widest mt-1">Formations</span>
+      <span class="font-['Inter'] text-[9px] font-medium uppercase mt-1">Formations</span>
     </a>
-    <a class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 hover:text-emerald-700 active:scale-90 transition-transform duration-150" href="contact.html">
+    <a class="flex flex-col items-center justify-center text-slate-400 px-3 py-2 hover:text-emerald-700 active:scale-90 transition-transform duration-150" href="contact.html">
       <span class="material-symbols-outlined">call</span>
-      <span class="font-['Inter'] text-[10px] font-medium uppercase tracking-widest mt-1">Contact</span>
+      <span class="font-['Inter'] text-[9px] font-medium uppercase mt-1">Contact</span>
     </a>
-    <button class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 hover:text-emerald-700 active:scale-90 transition-transform duration-150" onclick="toggleDrawer()">
+    <button class="flex flex-col items-center justify-center text-slate-400 px-3 py-2 hover:text-emerald-700 active:scale-90 transition-transform duration-150" onclick="toggleDrawer()">
       <span class="material-symbols-outlined">more_horiz</span>
-      <span class="font-['Inter'] text-[10px] font-medium uppercase tracking-widest mt-1">Plus</span>
+      <span class="font-['Inter'] text-[9px] font-medium uppercase mt-1">Plus</span>
     </button>
   </nav>
 
@@ -507,4 +708,5 @@
     }
   </script>
 </body>
+
 </html>

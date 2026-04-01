@@ -57,8 +57,8 @@
 
 <body class="bg-surface text-on-surface overflow-x-hidden selection:bg-primary-fixed selection:text-on-primary-fixed">
 
-  <!-- SIDE DRAWER (mobile) -->
-  <div class="fixed inset-y-0 left-0 z-[60] flex flex-col p-6 h-full w-80 rounded-r-3xl bg-[#faf9f6] shadow-2xl -translate-x-full transition-all ease-in-out duration-300" id="side-drawer">
+  <!-- ===== SIDE DRAWER (mobile) ===== -->
+  <div class="fixed inset-y-0 left-0 z-[60] flex flex-col p-6 h-full w-80 rounded-r-3xl bg-[#faf9f6] dark:bg-[#1a1c1a] shadow-2xl -translate-x-full transition-all ease-in-out duration-300" id="side-drawer">
     <div class="flex items-center gap-4 mb-8">
       <div class="w-12 h-12 rounded-full bg-surface-container overflow-hidden ring-2 ring-emerald-900/10">
         <img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxMzabEsUVO80cD4rY73GkOrl-YByZmJ6df0rb5ifjoTRiWIjuxD4i9At6770oxB9pzNYRvIz_6AyWp4FWTWWUqyLGq_qBkdOnTcZAkPbb2mHU4yamg85clKdZa84aUs2Ai7eR7VR7gaIHZhOD7cfr1f2g8iAdwMUlpozvbTFqAOe-rs7PnKurhuInSq7txRzNxci63VHEuEHSrwO4Th1T4X592ngupn9FrXzPX4PabAWuAtbEYTYd1XJkyTqKB5-0DQqEQT1sWGR6" />
@@ -67,41 +67,68 @@
         <h3 class="font-bold text-[#005232]">AgroPoulet Membre</h3>
         <p class="text-xs text-slate-500">Digital Agronomist • <span class="text-emerald-600 font-bold">Premium</span></p>
       </div>
-      <button class="ml-auto text-slate-400" onclick="toggleDrawer()"><span class="material-symbols-outlined">close</span></button>
+      <button class="ml-auto text-slate-400" onclick="toggleDrawer()">
+        <span class="material-symbols-outlined">close</span>
+      </button>
     </div>
     <nav class="flex flex-col gap-1">
-      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium" href="accueil.html"><span class="material-symbols-outlined">home</span><span>Accueil</span></a>
-      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium" href="apropos.html"><span class="material-symbols-outlined">info</span><span>A propos</span></a>
-      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium" href="marketplace.html"><span class="material-symbols-outlined">storefront</span><span>Marché</span></a>
-      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium" href="formation.html"><span class="material-symbols-outlined">school</span><span>Formations</span></a>
-      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium" href="carte.html"><span class="material-symbols-outlined">map</span><span>Carte</span></a>
-      <a class="flex items-center gap-4 p-3 rounded-xl bg-emerald-50 text-emerald-900 border-l-4 border-emerald-900 font-['Manrope'] font-medium" href="#"><span class="material-symbols-outlined">call</span><span>Contact</span></a>
+      <a class="flex items-center gap-4 p-3 rounded-xl bg-emerald-50 text-emerald-900 border-l-4 border-emerald-900 font-['Manrope'] font-medium" href="#">
+        <span class="material-symbols-outlined">home</span><span>Accueil</span>
+      </a>
+      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium" href="apropos.html">
+        <span class="material-symbols-outlined">info</span><span>A propos</span>
+      </a>
+      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium" href="finance.html">
+        <span class="material-symbols-outlined">payments</span><span>Financement</span>
+      </a>
+      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium" href="marketplace.html">
+        <span class="material-symbols-outlined">storefront</span><span>Marché</span>
+      </a>
+      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium" href="formation.html">
+        <span class="material-symbols-outlined">school</span><span>Formations</span>
+      </a>
+      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium" href="carte.html">
+        <span class="material-symbols-outlined">map</span><span>Carte</span>
+      </a>
+      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium" href="contact.html">
+        <span class="material-symbols-outlined">call</span><span>Contact</span>
+      </a>
+      <a class="flex items-center gap-4 p-3 rounded-xl text-slate-600 hover:bg-emerald-50 font-['Manrope'] font-medium" href="compte.html">
+        <span class="material-symbols-outlined">person</span><span>Compte</span>
+      </a>
     </nav>
   </div>
   <div class="fixed inset-0 bg-black/50 z-[55] hidden transition-opacity duration-300" id="drawer-overlay" onclick="toggleDrawer()"></div>
 
-  <!-- HEADER -->
+  <!-- ===== HEADER ===== -->
   <header class="bg-[#faf9f6]/80 backdrop-blur-md sticky top-0 z-50 shadow-sm shadow-[0_12px_40px_rgba(26,28,26,0.06)]">
     <div class="flex justify-between items-center w-full px-4 md:px-6 py-4 max-w-7xl mx-auto">
-      <div class="flex items-center gap-3 md:gap-8">
+
+      <!-- Mobile: hamburger + logo -->
+      <div class="flex items-center gap-3">
         <button class="md:hidden active:scale-95 duration-200 text-emerald-900" onclick="toggleDrawer()">
           <span class="material-symbols-outlined">menu</span>
         </button>
-        <span class="text-xl md:text-2xl font-black text-[#005232] tracking-tighter font-headline">AgroPoulet</span>
-        <nav class="hidden md:flex items-center gap-8">
-          <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="accueil.html">Accueil</a>
-          <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="apropos.html">A propos</a>
-          <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="marketplace.html">Marché</a>
-          <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="formation.html">Formations</a>
-          <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="carte.html">Carte</a>
-          <a class="text-[#005232] font-bold border-b-2 border-[#005232] font-headline tracking-tight text-lg" href="#">Contact</a>
-          <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="#">Connexion</a>
-        </nav>
+        <div class="text-xl md:text-2xl font-black text-[#005232] tracking-tighter font-headline">AgroPoulet</div>
       </div>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="accueil.html">Accueil</a>
+        <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="apropos.html">A propos</a>
+        <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="finance.html">Financement</a>
+        <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="marketplace.html">Marché</a>
+        <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="formation.html">Formations</a>
+        <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="carte.html">Carte</a>
+         <a class="text-[#005232] font-bold border-b-2 border-[#005232] font-headline tracking-tight text-lg hover:opacity-100 transition-all" href="#">Contact</a>
+        <a class="text-[#1a1c1a] opacity-70 font-headline tracking-tight text-lg hover:opacity-100 hover:text-emerald-700 transition-all" href="#">Connexion</a>
+      </nav>
+
+      <!-- Right icons -->
       <div class="flex items-center gap-3">
-        <button class="material-symbols-outlined text-[#005232] p-2 hover:bg-surface-container rounded-full transition-colors">notifications</button>
-        <div class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-primary-container overflow-hidden">
-          <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn3qgoMcGR5GsfG02cxJv3uZ-h-Bp-hosJqwN6Z4eIU_-CkRQfif4uLVm41q6-5Fbz_O0JTYOC0g-lTe4UazXl8ADfRD43NkhdokUKigqi7H0-GizPp9-AIjpqNE9zhDnj1uln1lYjdBey-NvHEMVCgIoPQeDxEeDxN_9uXwLHK5oASCx21I83jFpAjiZQ1r7fQp3lC-FGJ-GtaUCIXvHcXBW62a2Wybd6gibWHMDTtATgN3JX5740ezQ0v3X3AQ3Ldf3nofj5p5_C" alt="Profil" />
+        <span class="material-symbols-outlined text-[#005232]">notifications</span>
+        <div class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden">
+          <img alt="Profil" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFRE8Sp2DrPyQCNyh8agu6q9tDgPZPW4qI70n3fbM7JlASKVBHAqP-9PdvzxMViVkc7V4qafSqCv3ZlJNGEPYdkrLS1msMT11_u1h9UJlfXc2EJgUrb-G-3cKU5Xpks8lRK-ZV00HYye947vAWY02v_cdTP6RFvKtRQyrr4fS7A8AWGRKhklyEziy6b5GqwTU7xDq4gl99PkoWXw_3iEF0b8OtsH2bjn71EAGO5OMc0genDgsVTp-EMzzvdRuxER2yVxqKDXOOq9DD" />
         </div>
       </div>
     </div>
